@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import { Login, Search } from './pages';
+import { Login, Search, Album } from './pages';
 
 function App() {
   return (
@@ -7,6 +7,7 @@ function App() {
       <Routes>
         <Route path="/" element={ <Login /> } />
         <Route path="/search" element={ <Search /> } />
+        <Route path="/album/:id" element={ <Album /> } />
       </Routes>
     </div>
   );
