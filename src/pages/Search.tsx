@@ -9,23 +9,23 @@ function Search() {
   const [searchValue, setSearchValue] = useState('');
   const [validateSearch, setValidateSearch] = useState(false);
   const [buttonDisabled, setButtonDisabled] = useState(true);
-  const [dataSearch, setDataSearch] = useState<AlbumType[]>([]);
-  const [artistValue, setArtistValue] = useState('');
+  const [searchResult, setSearchResult] = useState<AlbumType[]>([]);
+  const [valueTitleResult, setValueTitleResult] = useState('');
   const [loading, setLoading] = useState(false);
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
-    setArtistValue(e.target.value);
+    setValueTitleResult(e.target.value);
   };
 
   const fetchSearchAlbumsAPI = async () => {
     if (validateSearch) {
       setLoading(true);
       try {
-        const data = await searchAlbumsAPI(searchValue);
-        setDataSearch(data);
+        const result = await searchAlbumsAPI(searchValue);
+        setSearchResult(result);
       } catch (error) {
-        console.log('Error', error);
+        console.error('Error fetching data!', error);
       } finally {
         setLoading(false);
         setSearchValue('');
@@ -51,6 +51,7 @@ function Search() {
               onChange={ handleSearch }
               data-testid="search-artist-input"
             />
+
             <button
               data-testid="search-artist-button"
               disabled={ buttonDisabled }
@@ -66,24 +67,26 @@ function Search() {
         )}
       </div>
 
-      <div className="search">
-        {dataSearch.length > 0 ? (
+      <div className="result-search">
+        {searchResult.length > 0 ? (
           <div>
-            Resultado de álbuns de:
-            {' '}
-            { artistValue }
+            <h1>
+              Resultado de álbuns de:
+              {' '}
+              { valueTitleResult }
+            </h1>
             <ul>
-              {dataSearch.map((artist) => (
-                <li key={ artist.collectionId }>
+              {searchResult.map((album) => (
+                <li key={ album.collectionId }>
                   <a
-                    href={ `/album/${artist.collectionId}` }
-                    data-testid={ `link-to-album-${artist.collectionId}` }
+                    href={ `/album/${album.collectionId}` }
+                    data-testid={ `link-to-album-${album.collectionId}` }
                     onClick={ (e) => {
                       e.preventDefault();
-                      navigate(`/album/${artist.collectionId}`);
+                      navigate(`/album/${album.collectionId}`);
                     } }
                   >
-                    {artist.collectionName}
+                    {album.collectionName}
                   </a>
                 </li>
               ))}
