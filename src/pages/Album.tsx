@@ -42,6 +42,7 @@ export default function Album() {
             {songs.map((music) => (
               <div key={ music.trackId }>
                 <MusicCard
+                  trackId={ music.trackId }
                   trackName={ music.trackName }
                   previewUrl={ music.previewUrl }
                 />

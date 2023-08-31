@@ -17,3 +17,7 @@ code {
   display: flex;
   justify-content: center;
 }
+
+.checkbox-favorite {
+  display: none;
+}
