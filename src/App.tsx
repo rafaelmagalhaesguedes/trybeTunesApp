@@ -1,13 +1,15 @@
 import { Routes, Route } from 'react-router-dom';
-import { Login, Search, Album } from './pages';
+import { Login, Layout, Search, Album } from './pages';
 
 function App() {
   return (
     <div className="app">
       <Routes>
         <Route path="/" element={ <Login /> } />
-        <Route path="/search" element={ <Search /> } />
-        <Route path="/album/:id" element={ <Album /> } />
+        <Route path="/" element={ <Layout /> }>
+          <Route path="/search" element={ <Search /> } />
+          <Route path="/album/:id" element={ <Album /> } />
+        </Route>
       </Routes>
     </div>
   );
