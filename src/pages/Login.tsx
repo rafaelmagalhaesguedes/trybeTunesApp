@@ -14,7 +14,7 @@ export default function Login() {
     setNameValue(e.target.value);
   };
 
-  const handleCreateUser = async () => {
+  const handleSubmit = async () => {
     if (validaName) {
       setLoading(true);
       try {
@@ -56,8 +56,8 @@ export default function Login() {
             <button
               data-testid="login-submit-button"
               type="submit"
-              onClick={ () => handleCreateUser() }
               disabled={ buttonDisabled }
+              onClick={ handleSubmit }
             >
               Entrar
             </button>

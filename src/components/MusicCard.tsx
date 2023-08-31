@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import iconChecked from '../images/checked_heart.png';
 import iconUnChecked from '../images/empty_heart.png';
 import { addSong, removeSong } from '../services/favoriteSongsAPI';
@@ -7,31 +7,21 @@ type MusicCardProps = {
   trackId: number;
   trackName: string;
   previewUrl: string;
+  favoriteTrack: boolean,
 };
 
-function MusicCard({ trackId, trackName, previewUrl } : MusicCardProps) {
-  const [isChecked, setIsChecked] = useState(false);
+function MusicCard({ trackId, trackName, previewUrl, favoriteTrack } : MusicCardProps) {
+  const [isChecked, setIsChecked] = useState(favoriteTrack);
 
-  const handleCheckBox = () => {
+  const handleCheck = async () => {
     setIsChecked((prevData) => !prevData);
-  };
 
-  useEffect(() => {
-    const fetchFavoriteSongsAPI = async () => {
-      if (trackId) {
-        try {
-          if (isChecked) {
-            await addSong({ trackId, trackName, previewUrl });
-          } else {
-            await removeSong({ trackId, trackName, previewUrl });
-          }
-        } catch (error) {
-          console.error('Error add/remove favorite song!', error);
-        }
-      }
-    };
-    fetchFavoriteSongsAPI();
-  }, [isChecked, trackId, trackName, previewUrl]);
+    if (!isChecked) {
+      await addSong({ trackId, trackName, previewUrl });
+    } else {
+      await removeSong({ trackId, trackName, previewUrl });
+    }
+  };
 
   return (
     <div className="music-card">
@@ -50,7 +40,7 @@ function MusicCard({ trackId, trackName, previewUrl } : MusicCardProps) {
         <input
           className="checkbox-favorite"
           type="checkbox"
-          onClick={ handleCheckBox }
+          onChange={ handleCheck }
           checked={ isChecked }
         />
         {isChecked ? (

@@ -55,9 +55,7 @@ function Search() {
             <button
               data-testid="search-artist-button"
               disabled={ buttonDisabled }
-              onClick={ () => {
-                fetchSearchAlbumsAPI();
-              } }
+              onClick={ () => fetchSearchAlbumsAPI() }
             >
               Pesquisar
             </button>
@@ -77,18 +75,21 @@ function Search() {
             </h1>
             <ul>
               {searchResult.map((album) => (
-                <li key={ album.collectionId }>
-                  <a
-                    href={ `/album/${album.collectionId}` }
-                    data-testid={ `link-to-album-${album.collectionId}` }
-                    onClick={ (e) => {
-                      e.preventDefault();
-                      navigate(`/album/${album.collectionId}`);
-                    } }
-                  >
-                    {album.collectionName}
-                  </a>
-                </li>
+                <div key={ album.collectionId }>
+                  <li>
+                    <a
+                      href={ `/album/${album.collectionId}` }
+                      data-testid={ `link-to-album-${album.collectionId}` }
+                      onClick={ (e) => {
+                        e.preventDefault();
+                        navigate(`/album/${album.collectionId}`);
+                      } }
+                    >
+                      <img src={ album.artworkUrl100 } alt="" />
+                      {album.collectionName}
+                    </a>
+                  </li>
+                </div>
               ))}
             </ul>
           </div>
