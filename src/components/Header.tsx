@@ -22,18 +22,18 @@ export default function Header() {
     handleUserName();
   }, []);
 
+  if (loading) return <Loading />;
+
   return (
     <header data-testid="header-component">
-      <nav>
+      <nav className="navbar">
         <NavLink to="/search" data-testid="link-to-search">Search</NavLink>
         <NavLink to="/favorites" data-testid="link-to-favorites">Favorites</NavLink>
         <NavLink to="/profile" data-testid="link-to-profile">Profile</NavLink>
       </nav>
-      {loading ? (
-        <Loading />
-      ) : (
-        <h2 data-testid="header-user-name">{ name }</h2>
-      )}
+      <div className="user-name">
+        <h1 data-testid="header-user-name">{ name }</h1>
+      </div>
     </header>
   );
 }
