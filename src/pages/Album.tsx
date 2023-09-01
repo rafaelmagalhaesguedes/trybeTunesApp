@@ -51,10 +51,8 @@ export default function Album() {
         {songs.map((song) => (
           <div key={ song.trackId }>
             <MusicCard
-              trackId={ song.trackId }
-              trackName={ song.trackName }
-              previewUrl={ song.previewUrl }
-              favoriteTrack={ favoriteSongs
+              dataSong={ song }
+              favoriteSong={ favoriteSongs
                 .some((favoriteSong) => favoriteSong.trackId === song.trackId) }
               removeFavoriteSong={ () => {} }
             />

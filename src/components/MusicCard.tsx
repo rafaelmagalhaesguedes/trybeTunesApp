@@ -2,30 +2,26 @@ import { useState } from 'react';
 import iconChecked from '../images/checked_heart.png';
 import iconUnChecked from '../images/empty_heart.png';
 import { addSong, removeSong } from '../services/favoriteSongsAPI';
+import { SongType } from '../types';
 
 type MusicCardProps = {
-  trackId: number;
-  trackName: string;
-  previewUrl: string;
-  favoriteTrack: boolean,
+  dataSong: SongType,
+  favoriteSong: boolean,
   removeFavoriteSong: () => void,
 };
 
-function MusicCard({
-  trackId,
-  trackName,
-  previewUrl,
-  favoriteTrack,
-  removeFavoriteSong } : MusicCardProps) {
-  const [isChecked, setIsChecked] = useState(favoriteTrack);
+function MusicCard({ dataSong, favoriteSong, removeFavoriteSong } : MusicCardProps) {
+  const { trackId, trackName, previewUrl } = dataSong;
+
+  const [isChecked, setIsChecked] = useState(favoriteSong);
 
   const handleCheck = () => {
     setIsChecked((prevData) => !prevData);
 
     if (!isChecked) {
-      addSong({ trackId, trackName, previewUrl });
+      addSong(dataSong);
     } else {
-      removeSong({ trackId, trackName, previewUrl });
+      removeSong(dataSong);
       removeFavoriteSong();
     }
   };

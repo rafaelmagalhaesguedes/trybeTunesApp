@@ -32,11 +32,9 @@ function Favorites() {
       {favoritesSongs.map((song) => (
         <div key={ song.trackId }>
           <MusicCard
-            trackId={ song.trackId }
-            trackName={ song.trackName }
-            previewUrl={ song.previewUrl }
+            dataSong={ song }
             removeFavoriteSong={ fetchFavoriteSongsAPI }
-            favoriteTrack
+            favoriteSong
           />
         </div>
       ))}
