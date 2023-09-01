@@ -8,14 +8,13 @@ function Search() {
   const navigate = useNavigate();
   const [searchValue, setSearchValue] = useState('');
   const [searchResult, setSearchResult] = useState<AlbumType[]>([]);
-  const [valueTitleResult, setValueTitleResult] = useState('');
   const [loading, setLoading] = useState(false);
 
   const validateInput = searchValue.length > 1;
+  const titleResult = searchValue;
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
-    setValueTitleResult(e.target.value);
   };
 
   const handleSubmit = async () => {
@@ -64,7 +63,7 @@ function Search() {
           <h1 className="title-result-search">
             Resultado de álbuns de:
             {' '}
-            {valueTitleResult}
+            {titleResult}
           </h1>
           <ul className="list-result-search">
             {searchResult.map((album) => (
