@@ -8,7 +8,7 @@ type MusicCardProps = {
   trackName: string;
   previewUrl: string;
   favoriteTrack: boolean,
-  removeFavoriteSong: () => void;
+  removeFavoriteSong: () => void,
 };
 
 function MusicCard({

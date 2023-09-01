@@ -56,6 +56,7 @@ export default function Album() {
               previewUrl={ song.previewUrl }
               favoriteTrack={ favoriteSongs
                 .some((favoriteSong) => favoriteSong.trackId === song.trackId) }
+              removeFavoriteSong={ () => {} }
             />
           </div>
         ))}
