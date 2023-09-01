@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import Loading from '../components/Loading';
@@ -7,96 +7,93 @@ import { AlbumType } from '../types';
 function Search() {
   const navigate = useNavigate();
   const [searchValue, setSearchValue] = useState('');
-  const [validateSearch, setValidateSearch] = useState(false);
-  const [buttonDisabled, setButtonDisabled] = useState(true);
   const [searchResult, setSearchResult] = useState<AlbumType[]>([]);
   const [valueTitleResult, setValueTitleResult] = useState('');
   const [loading, setLoading] = useState(false);
+
+  const validateInput = searchValue.length > 1;
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
     setValueTitleResult(e.target.value);
   };
 
-  const fetchSearchAlbumsAPI = async () => {
-    if (validateSearch) {
+  const handleSubmit = async () => {
+    try {
       setLoading(true);
-      try {
-        const result = await searchAlbumsAPI(searchValue);
-        setSearchResult(result);
-      } catch (error) {
-        console.error('Error fetching data!', error);
-      } finally {
-        setLoading(false);
-        setSearchValue('');
-      }
+      const result = await searchAlbumsAPI(searchValue);
+      setSearchResult(result);
+    } catch (error) {
+      console.error('Error fetching data!', error);
+    } finally {
+      setLoading(false);
+      setSearchValue('');
     }
   };
 
-  useEffect(() => {
-    setValidateSearch(searchValue.length > 1);
-    setButtonDisabled(!validateSearch);
-  }, [searchValue, validateSearch]);
+  if (loading) return <Loading />;
 
   return (
     <div className="section-search">
-      <div className="form">
-        {!loading ? (
-          <div className="search-form">
-            <input
-              type="text"
-              name="searchValue"
-              id="searchValue"
-              value={ searchValue }
-              onChange={ handleSearch }
-              data-testid="search-artist-input"
-            />
 
-            <button
-              data-testid="search-artist-button"
-              disabled={ buttonDisabled }
-              onClick={ () => fetchSearchAlbumsAPI() }
-            >
-              Pesquisar
-            </button>
-          </div>
-        ) : (
-          <Loading />
-        )}
-      </div>
+      <form className="form">
+        <div className="search-form">
+          <input
+            className="search-input-form"
+            type="text"
+            name="searchValue"
+            id="searchValue"
+            value={ searchValue }
+            onChange={ handleSearch }
+            data-testid="search-artist-input"
+          />
 
-      <div className="result-search">
-        {searchResult.length > 0 ? (
-          <div>
-            <h1>
-              Resultado de álbuns de:
-              {' '}
-              { valueTitleResult }
-            </h1>
-            <ul>
-              {searchResult.map((album) => (
-                <div key={ album.collectionId }>
-                  <li>
-                    <a
-                      href={ `/album/${album.collectionId}` }
-                      data-testid={ `link-to-album-${album.collectionId}` }
-                      onClick={ (e) => {
-                        e.preventDefault();
-                        navigate(`/album/${album.collectionId}`);
-                      } }
-                    >
-                      <img src={ album.artworkUrl100 } alt="" />
-                      {album.collectionName}
-                    </a>
-                  </li>
-                </div>
-              ))}
-            </ul>
-          </div>
-        ) : (
+          <button
+            className="search-button-form"
+            data-testid="search-artist-button"
+            disabled={ !validateInput }
+            onClick={ handleSubmit }
+          >
+            Pesquisar
+          </button>
+        </div>
+      </form>
+
+      {searchResult.length > 0 ? (
+        <div className="result-search">
+          <h1 className="title-result-search">
+            Resultado de álbuns de:
+            {' '}
+            {valueTitleResult}
+          </h1>
+          <ul className="list-result-search">
+            {searchResult.map((album) => (
+              <li key={ album.collectionId }>
+                <a
+                  className="link-result-search"
+                  href={ `/album/${album.collectionId}` }
+                  data-testid={ `link-to-album-${album.collectionId}` }
+                  onClick={ (e) => {
+                    e.preventDefault();
+                    navigate(`/album/${album.collectionId}`);
+                  } }
+                >
+                  <img
+                    className="cover-result-search"
+                    src={ album.artworkUrl100 }
+                    alt="cover album"
+                  />
+                  {album.collectionName}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : (
+        <div className="search-data-not-found">
           <p>Nenhum álbum foi encontrado</p>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 }
