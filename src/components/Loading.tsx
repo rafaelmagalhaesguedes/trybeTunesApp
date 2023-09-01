@@ -4,6 +4,9 @@
 
 export default function Loading() {
   return (
-    <p>Carregando...</p>
+    <>
+      <p className="spinner" />
+      <p>Carregando...</p>
+    </>
   );
 }
