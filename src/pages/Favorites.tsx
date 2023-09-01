@@ -8,7 +8,7 @@ function Favorites() {
   const [favoritesSongs, setFavoritesSongs] = useState<SongType[]>([]);
   const [loading, setLoading] = useState(false);
 
-  const fecthFavoriteSongsAPI = async () => {
+  const fetchFavoriteSongsAPI = async () => {
     try {
       setLoading(true);
       const favorites = await getFavoriteSongs();
@@ -21,7 +21,7 @@ function Favorites() {
   };
 
   useEffect(() => {
-    fecthFavoriteSongsAPI();
+    fetchFavoriteSongsAPI();
   }, []);
 
   if (loading) return <Loading />;
@@ -35,7 +35,7 @@ function Favorites() {
             trackId={ song.trackId }
             trackName={ song.trackName }
             previewUrl={ song.previewUrl }
-            removeFavoriteSong={ fecthFavoriteSongsAPI }
+            removeFavoriteSong={ fetchFavoriteSongsAPI }
             favoriteTrack
           />
         </div>
