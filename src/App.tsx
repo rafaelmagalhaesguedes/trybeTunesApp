@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import { Login, Layout, Search, Album } from './pages';
+import { Login, Layout, Search, Album, Favorites } from './pages';
 
 function App() {
   return (
@@ -9,6 +9,7 @@ function App() {
         <Route path="/" element={ <Layout /> }>
           <Route path="/search" element={ <Search /> } />
           <Route path="/album/:id" element={ <Album /> } />
+          <Route path="/favorites" element={ <Favorites /> } />
         </Route>
       </Routes>
     </div>

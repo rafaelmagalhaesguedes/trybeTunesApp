@@ -8,9 +8,15 @@ type MusicCardProps = {
   trackName: string;
   previewUrl: string;
   favoriteTrack: boolean,
+  removeFavoriteSong: () => void;
 };
 
-function MusicCard({ trackId, trackName, previewUrl, favoriteTrack } : MusicCardProps) {
+function MusicCard({
+  trackId,
+  trackName,
+  previewUrl,
+  favoriteTrack,
+  removeFavoriteSong } : MusicCardProps) {
   const [isChecked, setIsChecked] = useState(favoriteTrack);
 
   const handleCheck = () => {
@@ -20,6 +26,7 @@ function MusicCard({ trackId, trackName, previewUrl, favoriteTrack } : MusicCard
       addSong({ trackId, trackName, previewUrl });
     } else {
       removeSong({ trackId, trackName, previewUrl });
+      removeFavoriteSong();
     }
   };
 
