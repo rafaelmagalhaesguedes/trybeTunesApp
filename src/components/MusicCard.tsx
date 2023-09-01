@@ -13,13 +13,13 @@ type MusicCardProps = {
 function MusicCard({ trackId, trackName, previewUrl, favoriteTrack } : MusicCardProps) {
   const [isChecked, setIsChecked] = useState(favoriteTrack);
 
-  const handleCheck = async () => {
+  const handleCheck = () => {
     setIsChecked((prevData) => !prevData);
 
     if (!isChecked) {
-      await addSong({ trackId, trackName, previewUrl });
+      addSong({ trackId, trackName, previewUrl });
     } else {
-      await removeSong({ trackId, trackName, previewUrl });
+      removeSong({ trackId, trackName, previewUrl });
     }
   };
 
