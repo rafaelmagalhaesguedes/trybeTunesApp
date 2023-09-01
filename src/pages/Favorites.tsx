@@ -6,27 +6,23 @@ import MusicCard from '../components/MusicCard';
 
 function Favorites() {
   const [favoritesSongs, setFavoritesSongs] = useState<SongType[]>([]);
-  const [removeFavoriteSong, setRemoveFavoriteSong] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    const fecthFavoriteSongsAPI = async () => {
-      try {
-        setLoading(true);
-        const favorites = await getFavoriteSongs();
-        setFavoritesSongs(favorites);
-      } catch (error) {
-        console.error('Error fetching data!', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fecthFavoriteSongsAPI();
-  }, [removeFavoriteSong]);
-
-  const handleRemoveFavoriteSong = () => {
-    setRemoveFavoriteSong(!removeFavoriteSong);
+  const fecthFavoriteSongsAPI = async () => {
+    try {
+      setLoading(true);
+      const favorites = await getFavoriteSongs();
+      setFavoritesSongs(favorites);
+    } catch (error) {
+      console.error('Error fetching data!', error);
+    } finally {
+      setLoading(false);
+    }
   };
+
+  useEffect(() => {
+    fecthFavoriteSongsAPI();
+  }, []);
 
   if (loading) return <Loading />;
 
@@ -39,7 +35,7 @@ function Favorites() {
             trackId={ song.trackId }
             trackName={ song.trackName }
             previewUrl={ song.previewUrl }
-            removeFavoriteSong={ () => handleRemoveFavoriteSong() }
+            removeFavoriteSong={ fecthFavoriteSongsAPI }
             favoriteTrack
           />
         </div>
