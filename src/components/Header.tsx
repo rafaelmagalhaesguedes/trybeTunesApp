@@ -1,5 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch, faStar, faUser } from '@fortawesome/free-solid-svg-icons';
 import { getUser } from '../services/userAPI';
 import Loading from './Loading';
 import '../css/header.css';
@@ -30,9 +32,18 @@ export default function Header() {
     <header data-testid="header-component">
       <img className="header-logo" src={ Logo } alt="Logo" />
       <nav className="navbar">
-        <NavLink to="/search" data-testid="link-to-search">Search</NavLink>
-        <NavLink to="/favorites" data-testid="link-to-favorites">Favorites</NavLink>
-        <NavLink to="/profile" data-testid="link-to-profile">Profile</NavLink>
+        <NavLink to="/search" className="nav-link" data-testid="link-to-search">
+          <FontAwesomeIcon className="icon" icon={ faSearch } />
+          Search
+        </NavLink>
+        <NavLink to="/favorites" className="nav-link" data-testid="link-to-favorites">
+          <FontAwesomeIcon className="icon" icon={ faStar } />
+          Favorites
+        </NavLink>
+        <NavLink to="/profile" className="nav-link" data-testid="link-to-profile">
+          <FontAwesomeIcon className="icon" icon={ faUser } />
+          Profile
+        </NavLink>
       </nav>
       {!loading ? (
         <div className="user">
