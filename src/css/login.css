@@ -82,6 +82,47 @@
 }
 
 /*
+  CSS Loading Spinner Login
+*/
+
+.loagind-login {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.spinner-login {
+  animation: spin 3s linear infinite; /* Animação de rotação */
+  background-color: transparent;
+  background-image: url('../images/spinner-login.png');
+  height: 62px; /* Altura do spinner */
+  margin: 0 auto;
+  width: 62px; /* Largura do spinner */
+}
+
+.spinner-text {
+  color: rgba(0, 59, 229, 1);
+  font-family: Epilogue , sans-serif;
+  font-size: 35px;
+  font-weight: 400;
+  line-height: 50px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Animação de rotação */
+
+@keyframes spin {
+
+  0% { transform: rotate(0deg); }
+
+  100% { transform: rotate(360deg); }
+}
+
+/*
 *  Responsive CSS
 */
 
