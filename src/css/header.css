@@ -1,0 +1,47 @@
+header {
+  width: 20%;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 54px;
+  height: auto;
+  width: 250px;
+}
+
+.header-logo {
+  height: 95px;
+  margin: 33.59px 40px;
+  width: 170px;
+}
+
+.navbar {
+  margin: 100px 40px;
+}
+
+.user {
+  align-items: center;
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 10px;
+  justify-content: first baseline;
+  margin: 20px 40px;
+}
+
+.image-user {
+  background-color: #d6d6d6;
+  border-radius: 20px;
+  height: 40px;
+  width: 40px;
+}
+
+.user-name {
+  color: rgba(68, 73, 85, 1);
+  font-family: Epilogue , sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  line-height: 16px;
+}
+
