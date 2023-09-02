@@ -1,3 +1,7 @@
+/*
+*  Page Login CSS
+*/
+
 .container-login {
   background-image: url('../images/bg_blue.png');
   background-position: center;
@@ -35,9 +39,11 @@
 }
 
 .form-login {
+  align-items: center;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  width: 100%;
 }
 
 .input-login {
@@ -73,4 +79,48 @@
   line-height: 14px;
   text-transform: uppercase;
   width: 400px;
+}
+
+/*
+*  Responsive CSS
+*/
+
+@media only screen and ( max-width : 240px ) {
+
+  .img-logo {
+    width: 80%;
+  }
+}
+
+@media only screen and ( max-width : 480px ) {
+
+  .login {
+    height: auto;
+    margin: 20px;
+    padding: 20px 0;
+    width: 100%;
+  }
+
+  .form-login {
+    align-items: center;
+    padding: 0 20px;
+  }
+
+  .input-login {
+    width: 100%;
+  }
+
+  .button-login {
+    width: 100%;
+  }
+}
+
+@media only screen and ( min-width : 481px ) and ( max-width : 680px ) {
+
+  .login {
+    height: auto;
+    margin: 20px;
+    padding: 20px 0;
+    width: 100%;
+  }
 }
