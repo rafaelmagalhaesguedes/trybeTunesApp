@@ -18,12 +18,6 @@ code {
     monospace;
 }
 
-.loading {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}
-
 .checkbox-favorite {
   display: none;
 }
