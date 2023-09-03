@@ -1,0 +1,64 @@
+.album-container {
+  background: rgba(239, 243, 249, 1);
+  height: auto;
+  width: 100%;
+}
+
+.album-header {
+  background-image: url('../images/bg_album.png') , linear-gradient(135deg, rgb(0, 59, 229, 1), rgb(0, 213, 226, 1));
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 250px;
+  width: 100%;
+}
+
+.wrapper-album {
+  padding: 170px 380px;
+}
+
+.album-name {
+  color: white;
+  font-family: Epilogue , sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+}
+
+.album-artist {
+  color: white;
+  font-family: Epilogue , sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+.album-details {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.album-cover {
+  padding: 20px;
+  width: 20%;
+}
+
+.album-cover img {
+  border-radius: 12px;
+  bottom: 140px;
+  height: 240px;
+  position: relative;
+  width: 240px;
+}
+
+.album-music {
+  padding: 20px;
+  width: 60%;
+}
+
+.loading-album {
+  display: flex;
+  justify-content: center;
+  margin: 100px;
+}

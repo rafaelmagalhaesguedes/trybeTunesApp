@@ -5,6 +5,7 @@ import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 import Loading from '../components/Loading';
 import MusicCard from '../components/MusicCard';
 import { AlbumType, SongType } from '../types';
+import '../css/album.css';
 
 export default function Album() {
   const { id } = useParams<{ id: string }>();
@@ -36,29 +37,37 @@ export default function Album() {
     fetchDataAPI();
   }, [id]);
 
-  if (loading) return <Loading />;
-
   return (
-    <div className="album-details">
-      <div className="album-cover">
-        <img src={ album?.artworkUrl100 } alt="capa álbum" />
+    <div className="album-container">
+      <div className="album-header">
+        <div className="wrapper-album">
+          <h1 className="album-name" data-testid="album-name">{album?.collectionName}</h1>
+          <h2 className="album-artist" data-testid="artist-name">{album?.artistName}</h2>
+        </div>
       </div>
-      <div className="album-title">
-        <h1 data-testid="album-name">{album?.collectionName}</h1>
-        <h2 data-testid="artist-name">{album?.artistName}</h2>
-      </div>
-      <div className="music-list">
-        {songs.map((song) => (
-          <div key={ song.trackId }>
-            <MusicCard
-              dataSong={ song }
-              favoriteSong={ favoriteSongs
-                .some((favoriteSong) => favoriteSong.trackId === song.trackId) }
-              removeFavoriteSong={ () => {} }
-            />
+      {!loading ? (
+        <div className="album-details">
+          <div className="album-cover">
+            <img src={ album?.artworkUrl100 } alt="capa álbum" />
           </div>
-        ))}
-      </div>
+          <div className="album-music">
+            {songs.map((song) => (
+              <div key={ song.trackId }>
+                <MusicCard
+                  dataSong={ song }
+                  favoriteSong={ favoriteSongs
+                    .some((favoriteSong) => favoriteSong.trackId === song.trackId) }
+                  removeFavoriteSong={ () => {} }
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      ) : (
+        <div className="loading-album">
+          <Loading />
+        </div>
+      )}
     </div>
   );
 }
