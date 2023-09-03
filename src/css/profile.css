@@ -1,0 +1,81 @@
+.container-profile {
+  background-color: rgb(239, 243, 249);
+  height: auto;
+  width: 100%;
+}
+
+.header-profile {
+  background-image: url('../images/bg_profile.png') , linear-gradient(135deg, rgb(0, 59, 229, 1), rgb(0, 213, 226, 1));
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 220px;
+  width: 100%;
+}
+
+.section-profile {
+  display: flex;
+  flex-direction: row;
+}
+
+.image-profile {
+  margin-left: 70px;
+  width: 30%;
+}
+
+.image-profile img {
+  background-color: white;
+  border-radius: 240px;
+  bottom: 150px;
+  box-shadow: -9px 8px 8px 0 rgba(0, 0, 0, 0.2);
+  height: 240px;
+  position: relative;
+  width: 240px;
+}
+
+.user-profile {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 30px;
+  width: 70%;
+}
+
+label {
+  color: rgb(61, 73, 92);
+  font-family: Epilogue , sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.data {
+  color: rgb(61, 73, 92);
+  font-family: Epilogue , sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.button-edit-profile {
+  background-color: rgb(0, 59, 229);
+  border-radius: 100px;
+  color: white;
+  font-family: Epilogue , sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 14px;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 152px;
+}
+
+.loading-profile {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  height: 500px;
+  justify-content: center;
+  width: 100%;
+}

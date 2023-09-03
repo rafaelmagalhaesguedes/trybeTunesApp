@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { UserType } from '../types';
 import { getUser } from '../services/userAPI';
 import Loading from '../components/Loading';
+import '../css/profile.css';
 
 function Profile() {
   const [user, setUser] = useState<UserType | null>(null);
@@ -23,23 +24,49 @@ function Profile() {
     fetchUserAPI();
   }, []);
 
-  if (loading) return <Loading />;
-
   return (
-    <>
-      <h1>Profile</h1>
-      <div className="user-data">
-        <p>{ user?.name }</p>
-        <p>{ user?.email }</p>
-        <p>{ user?.description }</p>
-        <img
-          src={ user?.image }
-          alt="user"
-          data-testid="profile-image"
-        />
-        <Link to="/profile/edit">Editar perfil</Link>
-      </div>
-    </>
+    <div className="container-profile">
+      <div className="header-profile" />
+
+      {!loading ? (
+        <div className="section-profile">
+
+          <div className="image-profile">
+            <img
+              src={ user?.image }
+              alt="user"
+              data-testid="profile-image"
+            />
+          </div>
+
+          <div className="user-profile">
+
+            <div className="user-name-profile">
+              <label htmlFor="data">Nome</label>
+              <p className="data">{ user?.name }</p>
+            </div>
+
+            <div className="user-email">
+              <label htmlFor="data">Email</label>
+              <p className="data">{ user?.email }</p>
+            </div>
+
+            <div className="user-description">
+              <label htmlFor="data">Description</label>
+              <p className="data">{ user?.description }</p>
+            </div>
+
+            <Link to="/profile/edit" className="button-edit-profile">
+              Editar perfil
+            </Link>
+          </div>
+        </div>
+      ) : (
+        <div className="loading-profile">
+          <Loading />
+        </div>
+      )}
+    </div>
   );
 }
 
