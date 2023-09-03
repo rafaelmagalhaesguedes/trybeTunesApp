@@ -1,11 +1,13 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
+import AlbumCard from '../components/AlbumCard';
 import Loading from '../components/Loading';
 import { AlbumType } from '../types';
+import '../css/search.css';
 
 function Search() {
-  const navigate = useNavigate();
   const [searchValue, setSearchValue] = useState('');
   const [searchResult, setSearchResult] = useState<AlbumType[]>([]);
   const [searchResultTitle, setSearchResultTitle] = useState('');
@@ -31,11 +33,8 @@ function Search() {
     }
   };
 
-  if (loading) return <Loading />;
-
   return (
-    <div className="section-search">
-
+    <section className="section-search">
       <form className="form">
         <div className="search-form">
           <input
@@ -46,55 +45,38 @@ function Search() {
             value={ searchValue }
             onChange={ handleSearch }
             data-testid="search-artist-input"
+            placeholder="Nome do artista"
           />
+
+          <FontAwesomeIcon className="icon-search" icon={ faSearch } />
 
           <button
             className="search-button-form"
             data-testid="search-artist-button"
             disabled={ !validateInput }
-            onClick={ handleSubmit }
+            onClick={ (e) => {
+              e.preventDefault();
+              handleSubmit();
+            } }
           >
-            Pesquisar
+            Procurar
           </button>
         </div>
       </form>
 
-      {searchResult.length > 0 ? (
-        <div className="result-search">
-          <h1 className="title-result-search">
-            Resultado de álbuns de:
-            {' '}
-            {searchResultTitle}
-          </h1>
-          <ul className="list-result-search">
-            {searchResult.map((album) => (
-              <li key={ album.collectionId }>
-                <a
-                  className="link-result-search"
-                  href={ `/album/${album.collectionId}` }
-                  data-testid={ `link-to-album-${album.collectionId}` }
-                  onClick={ (e) => {
-                    e.preventDefault();
-                    navigate(`/album/${album.collectionId}`);
-                  } }
-                >
-                  <img
-                    className="cover-result-search"
-                    src={ album.artworkUrl100 }
-                    alt="cover album"
-                  />
-                  {album.collectionName}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ) : (
-        <div className="search-data-not-found">
-          <p>Nenhum álbum foi encontrado</p>
-        </div>
-      )}
-    </div>
+      <div className="result-search">
+        {loading ? (
+          <div className="loading-search">
+            <Loading />
+          </div>
+        ) : (
+          <AlbumCard
+            resultTitle={ searchResultTitle }
+            searchResult={ searchResult }
+          />
+        )}
+      </div>
+    </section>
   );
 }
 

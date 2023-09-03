@@ -51,7 +51,9 @@ export default function Header() {
           <p className="user-name" data-testid="header-user-name">{ name }</p>
         </div>
       ) : (
-        <Loading />
+        <div className="loading-header">
+          <Loading />
+        </div>
       )}
     </header>
   );
