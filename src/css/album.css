@@ -47,6 +47,7 @@
 .album-cover img {
   border-radius: 12px;
   bottom: 140px;
+  box-shadow: -8px 8px 8px 1px rgba(68, 73, 85, 0.2);
   height: 240px;
   position: relative;
   width: 240px;

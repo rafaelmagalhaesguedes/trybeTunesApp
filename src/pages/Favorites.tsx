@@ -3,6 +3,7 @@ import { SongType } from '../types';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 import Loading from '../components/Loading';
 import MusicCard from '../components/MusicCard';
+import '../css/favorites.css';
 
 function Favorites() {
   const [favoritesSongs, setFavoritesSongs] = useState<SongType[]>([]);
@@ -24,20 +25,28 @@ function Favorites() {
     fetchFavoriteSongsAPI();
   }, []);
 
-  if (loading) return <Loading />;
-
   return (
-    <div>
-      <h1>Favorites</h1>
-      {favoritesSongs.map((song) => (
-        <div key={ song.trackId }>
-          <MusicCard
-            dataSong={ song }
-            removeFavoriteSong={ fetchFavoriteSongsAPI }
-            favoriteSong
-          />
+    <div className="container-favorites">
+      <div className="header-favorites">
+        <h1 className="title-favorites">Músicas Favoritas</h1>
+      </div>
+      {!loading ? (
+        <div className="music-favorites">
+          {favoritesSongs.map((song) => (
+            <div className="list-favorites" key={ song.trackId }>
+              <MusicCard
+                dataSong={ song }
+                removeFavoriteSong={ fetchFavoriteSongsAPI }
+                favoriteSong
+              />
+            </div>
+          ))}
         </div>
-      ))}
+      ) : (
+        <div className="loading-favorites">
+          <Loading />
+        </div>
+      )}
     </div>
   );
 }

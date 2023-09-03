@@ -1,0 +1,51 @@
+.container-favorites {
+  align-items: center;
+  background-color: rgb(239, 243, 249);
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: 100%;
+}
+
+.header-favorites {
+  align-items: center;
+  background-image: url('../images/bg_favorites.png') , linear-gradient(135deg, rgb(0, 59, 229, 1), rgb(0, 213, 226, 1));
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  height: 220px;
+  justify-content: center;
+  width: 100%;
+}
+
+.title-favorites {
+  color: white;
+  font-family: Epilogue , sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 21px;
+}
+
+.music-favorites {
+  align-items: center;
+  background-color: rgb(239, 243, 249);
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: 100%;
+}
+
+.list-favorites {
+  margin: 30px 0;
+  width: 70%;
+}
+
+.loading-favorites {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  height: 500px;
+  justify-content: center;
+  width: 100%;
+}
