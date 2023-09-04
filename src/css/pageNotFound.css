@@ -1,0 +1,8 @@
+.page-not-found {
+  background-image: url('../images/bg_erro.png') , linear-gradient(135deg, rgb(0, 59, 229, 1), rgb(0, 213, 226, 1));
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+}
