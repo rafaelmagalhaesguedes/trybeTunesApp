@@ -31,8 +31,9 @@ function Profile() {
       {!loading ? (
         <div className="section-profile">
 
-          <div className="image-profile">
+          <div className="foto-profile">
             <img
+              className="foto"
               src={ user?.image }
               alt="user"
               data-testid="profile-image"

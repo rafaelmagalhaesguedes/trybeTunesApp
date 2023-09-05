@@ -18,18 +18,20 @@
   flex-direction: row;
 }
 
-.image-profile {
+.foto-profile {
+  bottom: 150px;
+  display: flex;
   margin-left: 70px;
+  position: relative;
   width: 30%;
 }
 
-.image-profile img {
-  background-color: white;
+.foto {
+  background-color: rgb(143, 188, 255);
+  border: 1px solid silver;
   border-radius: 240px;
-  bottom: 150px;
-  box-shadow: -9px 8px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: -9px 8px 8px 0 #0033;
   height: 240px;
-  position: relative;
   width: 240px;
 }
 
