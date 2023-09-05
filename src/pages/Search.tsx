@@ -6,11 +6,13 @@ import AlbumCard from '../components/AlbumCard';
 import Loading from '../components/Loading';
 import { AlbumType } from '../types';
 import '../css/search.css';
+import Error from '../images/circle_error.png';
 
 function Search() {
   const [searchValue, setSearchValue] = useState('');
   const [searchResult, setSearchResult] = useState<AlbumType[]>([]);
   const [searchResultTitle, setSearchResultTitle] = useState('');
+  const [resultState, setResultState] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const validateInput = searchValue.length > 1;
@@ -25,6 +27,9 @@ function Search() {
       setLoading(true);
       const result = await searchAlbumsAPI(searchValue);
       setSearchResult(result);
+      if (result) {
+        setResultState(true);
+      }
     } catch (error) {
       console.error('Error fetching data!', error);
     } finally {
@@ -45,7 +50,7 @@ function Search() {
             value={ searchValue }
             onChange={ handleSearch }
             data-testid="search-artist-input"
-            placeholder="Nome do artista"
+            placeholder="Digite sua pesquisa"
           />
 
           <FontAwesomeIcon className="icon-search" icon={ faSearch } />
@@ -70,10 +75,35 @@ function Search() {
             <Loading />
           </div>
         ) : (
-          <AlbumCard
-            resultTitle={ searchResultTitle }
-            searchResult={ searchResult }
-          />
+          <div className="result-search">
+            {searchResult.length > 0 ? (
+              <>
+                <div className="title-album">
+                  <h1 className="title-album-result">
+                    Resultado de álbuns de:
+                    {' '}
+                    {searchResultTitle}
+                  </h1>
+                </div>
+                <div className="album-card">
+                  <AlbumCard
+                    searchResult={ searchResult }
+                  />
+                </div>
+              </>
+            ) : (
+              <div
+                style={ {
+                  display: resultState === false ? 'none' : 'block',
+                  textAlign: 'center',
+                  paddingTop: '150px' } }
+              >
+                <img className="circle-error" src={ Error } alt="Error" />
+                <p className="search-error-message">Nenhum álbum foi encontrado</p>
+              </div>
+            )}
+
+          </div>
         )}
       </div>
     </section>
