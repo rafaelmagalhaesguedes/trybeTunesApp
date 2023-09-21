@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { AlbumType } from '../types';
 import '../css/albumCard.css';
 
@@ -14,23 +14,23 @@ function AlbumCard({ searchResult } : AlbumCardProps) {
         {searchResult.map((album) => (
           <div className="card" key={ album.collectionId }>
             <li className="results">
-              <img
-                className="cover-album"
-                src={ album.artworkUrl100 }
-                alt="cover album"
-              />
-              <a
+              <Link
                 className="link-album"
-                href={ `/album/${album.collectionId}` }
+                to={ `/album/${album.collectionId}` }
                 data-testid={ `link-to-album-${album.collectionId}` }
                 onClick={ (e) => {
                   e.preventDefault();
                   navigate(`/album/${album.collectionId}`);
                 } }
               >
+                <img
+                  className="cover-album"
+                  src={ album.artworkUrl100 }
+                  alt="cover album"
+                />
                 {album.collectionName}
-              </a>
-              <p className="artist-name">{album.artistName}</p>
+                <p className="artist-name">{album.artistName}</p>
+              </Link>
             </li>
           </div>
         ))}
