@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faStar, faUser } from '@fortawesome/free-solid-svg-icons';
@@ -31,7 +31,9 @@ export default function Header() {
 
   return (
     <header data-testid="header-component">
-      <img className="header-logo" src={ Logo } alt="Logo" />
+      <Link to="/search">
+        <img className="header-logo" src={ Logo } alt="Logo" />
+      </Link>
       <nav className="navbar">
         <NavLink to="/search" className="nav-link" data-testid="link-to-search">
           <FontAwesomeIcon className="icon" icon={ faSearch } />

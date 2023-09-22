@@ -1,5 +1,5 @@
 .section-search {
-  height: 720px;
+  height: 80vh;
   width: 100%;
 }
 
@@ -14,7 +14,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
-  height: 220px;
+  height: 20vh;
   justify-content: center;
   width: 100%;
 }

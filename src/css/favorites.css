@@ -14,7 +14,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
-  height: 220px;
+  height: 20vh;
   justify-content: center;
   width: 100%;
 }
@@ -45,7 +45,7 @@
   align-content: center;
   align-items: center;
   display: flex;
-  height: 500px;
+  height: 80vh;
   justify-content: center;
   width: 100%;
 }

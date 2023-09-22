@@ -9,7 +9,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 220px;
+  height: 20vh;
   width: 100%;
 }
 
@@ -19,7 +19,7 @@
 }
 
 .foto-profile {
-  bottom: 150px;
+  bottom: 80px;
   display: flex;
   margin-left: 70px;
   position: relative;
@@ -77,7 +77,7 @@ label {
   align-content: center;
   align-items: center;
   display: flex;
-  height: 500px;
+  height: 80vh;
   justify-content: center;
   width: 100%;
 }
