@@ -6,6 +6,7 @@ import { UserType } from '../types';
 import { getUser, updateUser } from '../services/userAPI';
 import Loading from '../components/Loading';
 import '../css/profileEdit.css';
+import imagemPadrao from '../images/user-mock.png';
 
 function ProfileEdit() {
   const navigate = useNavigate();
@@ -92,7 +93,7 @@ function ProfileEdit() {
             <div className="image-user-profile">
               <img
                 className="image-user-edit-profile"
-                src={ user.image }
+                src={ user.image || imagemPadrao }
                 alt="ImageUserProfile"
               />
             </div>
@@ -143,7 +144,7 @@ function ProfileEdit() {
               <div className="input-edit-description">
                 <label htmlFor="description">Description</label>
                 <textarea
-                  className="edit-input-description"
+                  className="edit-textarea"
                   data-testid="edit-input-description"
                   id="description"
                   name="description"

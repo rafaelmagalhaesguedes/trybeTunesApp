@@ -6,6 +6,7 @@ import { getUser } from '../services/userAPI';
 import Loading from './Loading';
 import '../css/header.css';
 import Logo from '../images/logo.png';
+import imagemPadrao from '../images/user-mock.png';
 
 export default function Header() {
   const [name, setName] = useState('');
@@ -47,7 +48,7 @@ export default function Header() {
       </nav>
       {!loading ? (
         <div className="user">
-          <img className="image-user" src={ imageUser } alt="imageUser" />
+          <img className="image-user" src={ imageUser || imagemPadrao } alt="imageUser" />
           <p className="user-name" data-testid="header-user-name">{ name }</p>
         </div>
       ) : (

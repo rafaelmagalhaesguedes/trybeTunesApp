@@ -4,6 +4,7 @@ import { UserType } from '../types';
 import { getUser } from '../services/userAPI';
 import Loading from '../components/Loading';
 import '../css/profile.css';
+import imagemPadrao from '../images/user-mock.png';
 
 function Profile() {
   const [user, setUser] = useState<UserType | null>(null);
@@ -34,7 +35,7 @@ function Profile() {
           <div className="foto-profile">
             <img
               className="foto"
-              src={ user?.image }
+              src={ user?.image || imagemPadrao }
               alt="user"
               data-testid="profile-image"
             />
