@@ -34,6 +34,7 @@ function MusicCard({ dataSong, favoriteSong, removeFavoriteSong } : MusicCardPro
       </div>
       <div className="music-audio">
         <audio
+          className="audio-container"
           data-testid="audio-component"
           src={ previewUrl }
           controls

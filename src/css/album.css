@@ -76,7 +76,29 @@
   }
 
   .album-music {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
     padding: 12px;
+    width: 100%;
+  }
+
+  .music {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .music-card {
+    align-items: flex-start;
+    border-bottom: 1px solid gainsboro;
+    display: flex;
+    flex-flow: column;
+    gap: 1rem;
+    margin: 20px 0;
+    width: 100%;
+  }
+
+  .music-name {
     width: 100%;
   }
 

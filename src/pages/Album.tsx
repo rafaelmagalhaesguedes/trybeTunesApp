@@ -52,7 +52,7 @@ export default function Album() {
           </div>
           <div className="album-music">
             {songs.map((song) => (
-              <div key={ song.trackId }>
+              <div className="music" key={ song.trackId }>
                 <MusicCard
                   dataSong={ song }
                   favoriteSong={ favoriteSongs
