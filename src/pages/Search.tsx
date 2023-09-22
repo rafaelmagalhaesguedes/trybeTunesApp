@@ -7,7 +7,6 @@ import Loading from '../components/Loading';
 import { AlbumType } from '../types';
 import '../css/search.css';
 import Error from '../images/circle_error.png';
-import Logo from '../images/logo.png';
 import LogoMobile from '../images/logo-mobile.png';
 
 function Search() {

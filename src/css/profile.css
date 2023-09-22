@@ -81,3 +81,26 @@ label {
   justify-content: center;
   width: 100%;
 }
+
+@media only screen and ( max-width : 768px ) {
+
+  .foto-profile {
+    bottom: 150px;
+    position: relative;
+    width: 100%;
+  }
+
+  .section-profile {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .user-profile {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: -120px;
+    padding: 20px;
+    width: 100%;
+  }
+}
