@@ -2,11 +2,11 @@ import { NavLink, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faStar, faUser } from '@fortawesome/free-solid-svg-icons';
-import { getUser } from '../services/userAPI';
-import Loading from './Loading';
-import '../css/header.css';
-import Logo from '../images/logo.png';
-import imagemPadrao from '../images/user-mock.png';
+import { getUser } from '../../services/userAPI';
+import Loading from '../Loading/Loading';
+import './header.css';
+import Logo from '../../images/logo.png';
+import imagemPadrao from '../../images/user-mock.png';
 
 export default function Header() {
   const [name, setName] = useState('');

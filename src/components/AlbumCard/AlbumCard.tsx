@@ -1,6 +1,6 @@
 import { useNavigate, Link } from 'react-router-dom';
-import { AlbumType } from '../types';
-import '../css/albumCard.css';
+import { AlbumType } from '../../types';
+import './albumCard.css';
 
 type AlbumCardProps = {
   searchResult: AlbumType[],

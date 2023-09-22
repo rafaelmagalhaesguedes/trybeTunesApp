@@ -4,8 +4,8 @@ import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import SearchNoFound from '../components/Search/SearchNoFound';
 import SearchResult from '../components/Search/SearchResult';
 import SearchForm from '../components/Search/SearchForm';
-import Loading from '../components/Loading';
-import Navbar from '../components/Navbar';
+import Loading from '../components/Loading/Loading';
+import Navbar from '../components/Navbar/Navbar';
 import '../components/Search/search.css';
 
 function Search() {

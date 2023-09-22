@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { UserType } from '../types';
 import { getUser } from '../services/userAPI';
-import Loading from '../components/Loading';
-import Navbar from '../components/Navbar';
+import Loading from '../components/Loading/Loading';
+import Navbar from '../components/Navbar/Navbar';
 import '../css/profile.css';
 import imagemPadrao from '../images/user-mock.png';
 

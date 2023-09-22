@@ -1,5 +1,5 @@
 import { AlbumType } from '../../types';
-import AlbumCard from '../AlbumCard';
+import AlbumCard from '../AlbumCard/AlbumCard';
 import Error from '../../images/circle_error.png';
 
 interface SearchResultProps {

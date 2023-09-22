@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import iconChecked from '../images/checked_heart.png';
-import iconUnChecked from '../images/empty_heart.png';
-import { addSong, removeSong } from '../services/favoriteSongsAPI';
-import { SongType } from '../types';
-import '../css/musicCard.css';
+import iconChecked from '../../images/checked_heart.png';
+import iconUnChecked from '../../images/empty_heart.png';
+import { addSong, removeSong } from '../../services/favoriteSongsAPI';
+import { SongType } from '../../types';
+import './musicCard.css';
 
 type MusicCardProps = {
   dataSong: SongType,

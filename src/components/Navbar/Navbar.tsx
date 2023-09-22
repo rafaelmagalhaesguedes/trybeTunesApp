@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faStar, faUser } from '@fortawesome/free-solid-svg-icons';
-import '../css/navbar.css';
-import { Link } from 'react-router-dom';
-import imagemPadrao from '../images/user-mock.png';
-import { getUser } from '../services/userAPI';
-import LogoMobile from '../images/logo-mobile.png';
+import imagemPadrao from '../../images/user-mock.png';
+import { getUser } from '../../services/userAPI';
+import LogoMobile from '../../images/logo-mobile.png';
+import './navbar.css';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);

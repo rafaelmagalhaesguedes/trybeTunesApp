@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { SongType } from '../types';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
-import Loading from '../components/Loading';
-import MusicCard from '../components/MusicCard';
-import Navbar from '../components/Navbar';
+import Loading from '../components/Loading/Loading';
+import MusicCard from '../components/MusicCard/MusicCard';
+import Navbar from '../components/Navbar/Navbar';
 import '../css/favorites.css';
 
 function Favorites() {
