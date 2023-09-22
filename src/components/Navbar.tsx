@@ -5,6 +5,7 @@ import '../css/navbar.css';
 import { Link } from 'react-router-dom';
 import imagemPadrao from '../images/user-mock.png';
 import { getUser } from '../services/userAPI';
+import LogoMobile from '../images/logo-mobile.png';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,6 +32,9 @@ function Navbar() {
   return (
     <nav className="navbar-responsive">
       <div className="navbar-container">
+        <div className="logo-navbar">
+          <img className="logo" src={ LogoMobile } alt="Logo" />
+        </div>
         <div className={ `navbar-links ${isOpen ? 'active' : ''}` }>
           <Link to="/search" className="link">
             <FontAwesomeIcon className="icon" icon={ faSearch } />

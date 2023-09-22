@@ -93,12 +93,6 @@
 
 @media only screen and ( max-width : 480px ) {
 
-  .logo-mobile {
-    display: block;
-    margin-bottom: 30px;
-    width: 100px;
-  }
-
   .section-search {
     height: auto;
     width: 100%;
@@ -107,8 +101,9 @@
   .form {
     align-items: center;
     display: flex;
-    flex-direction: column;
     height: 180px;
+    padding: 10px;
+    padding-top: 100px;
     width: 100%;
   }
 
@@ -137,7 +132,6 @@
     color: white;
     position: relative;
     right: 30px;
-    top: 13px;
   }
 
   .search-button-form {
