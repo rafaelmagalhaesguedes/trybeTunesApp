@@ -4,7 +4,7 @@ import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 import Loading from '../components/Loading/Loading';
 import MusicCard from '../components/MusicCard/MusicCard';
 import Navbar from '../components/Navbar/Navbar';
-import '../css/favorites.css';
+import '../components/Favorites/favorites.css';
 
 function Favorites() {
   const [favoritesSongs, setFavoritesSongs] = useState<SongType[]>([]);
