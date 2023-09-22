@@ -80,3 +80,10 @@ nav > a {
 .loading-header {
   margin: 20px 40px;
 }
+
+@media only screen and ( max-width : 768px ) {
+
+  header {
+    display: none;
+  }
+}

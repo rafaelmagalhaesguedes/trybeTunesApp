@@ -63,3 +63,27 @@
   justify-content: center;
   margin: 100px;
 }
+
+@media only screen and ( max-width : 480px ) {
+
+  .album-header {
+    height: 200px;
+  }
+
+  .wrapper-album {
+    padding: 10px;
+    text-align: center;
+  }
+
+  .album-music {
+    padding: 12px;
+    width: 100%;
+  }
+
+  .album-cover {
+    height: 140px;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+  }
+}
