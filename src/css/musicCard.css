@@ -10,7 +10,7 @@
 }
 
 .music-name {
-  width: 20%;
+  width: 40%;
 }
 
 .music-name p {
@@ -23,7 +23,6 @@
 
 .music-audio {
   border-radius: 10px;
-  margin-bottom: 20px;
   width: 100%;
 }
 
