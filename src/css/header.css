@@ -6,6 +6,10 @@ header {
   width: 250px;
 }
 
+.menu-icon {
+  display: none;
+}
+
 nav {
   display: flex;
   flex-direction: column;
@@ -86,4 +90,37 @@ nav > a {
   header {
     display: none;
   }
+
+  .menu-icon {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    outline: none;
+    position: absolute;
+  }
+
+  .menu-icon .open {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    outline: none;
+    position: absolute;
+  }
+
+  .menu-icon:focus {
+    box-shadow: 0 0 3px 2px rgba(0, 0, 255, 0.5);
+  }
+
+  .menu-icon.open .bar:nth-child( 1 ) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .menu-icon.open .bar:nth-child( 2 ) {
+    opacity: 0;
+  }
+
+  .menu-icon.open .bar:nth-child( 3 ) {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
 }
+

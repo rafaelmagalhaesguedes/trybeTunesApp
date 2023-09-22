@@ -34,6 +34,7 @@ export default function Header() {
       <Link to="/search">
         <img className="header-logo" src={ Logo } alt="Logo" />
       </Link>
+
       <nav className="navbar">
         <NavLink to="/search" className="nav-link" data-testid="link-to-search">
           <FontAwesomeIcon className="icon" icon={ faSearch } />
@@ -51,7 +52,7 @@ export default function Header() {
       {!loading ? (
         <div className="user">
           <img className="image-user" src={ imageUser || imagemPadrao } alt="imageUser" />
-          <p className="user-name" data-testid="header-user-name">{ name }</p>
+          <p className="user-name" data-testid="header-user-name">{name}</p>
         </div>
       ) : (
         <div className="loading-header">

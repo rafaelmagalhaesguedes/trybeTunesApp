@@ -5,6 +5,7 @@ import { faCircleExclamation } from '@fortawesome/free-solid-svg-icons';
 import { UserType } from '../types';
 import { getUser, updateUser } from '../services/userAPI';
 import Loading from '../components/Loading';
+import Navbar from '../components/Navbar';
 import '../css/profileEdit.css';
 import imagemPadrao from '../images/user-mock.png';
 
@@ -83,7 +84,7 @@ function ProfileEdit() {
 
   return (
     <div className="container-edit-profile">
-
+      <Navbar />
       <div className="header-edit-profile" />
 
       <main className="main-edit-profile">

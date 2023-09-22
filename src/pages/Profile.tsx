@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { UserType } from '../types';
 import { getUser } from '../services/userAPI';
 import Loading from '../components/Loading';
+import Navbar from '../components/Navbar';
 import '../css/profile.css';
 import imagemPadrao from '../images/user-mock.png';
 
@@ -27,6 +28,7 @@ function Profile() {
 
   return (
     <div className="container-profile">
+      <Navbar />
       <div className="header-profile" />
 
       {!loading ? (

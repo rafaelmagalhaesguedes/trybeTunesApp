@@ -4,6 +4,7 @@ import getMusics from '../services/musicsAPI';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 import Loading from '../components/Loading';
 import MusicCard from '../components/MusicCard';
+import Navbar from '../components/Navbar';
 import { AlbumType, SongType } from '../types';
 import '../css/album.css';
 
@@ -39,6 +40,7 @@ export default function Album() {
 
   return (
     <div className="album-container">
+      <Navbar />
       <div className="album-header">
         <div className="wrapper-album">
           <h1 className="album-name" data-testid="album-name">{album?.collectionName}</h1>

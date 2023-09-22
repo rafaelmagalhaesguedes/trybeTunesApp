@@ -8,6 +8,7 @@ import { AlbumType } from '../types';
 import '../css/search.css';
 import Error from '../images/circle_error.png';
 import LogoMobile from '../images/logo-mobile.png';
+import Navbar from '../components/Navbar';
 
 function Search() {
   const [searchValue, setSearchValue] = useState('');
@@ -41,6 +42,7 @@ function Search() {
 
   return (
     <section className="section-search">
+      <Navbar />
       <form className="form">
         <img className="logo-mobile" src={ LogoMobile } alt="Logo" />
         <div className="search-form">

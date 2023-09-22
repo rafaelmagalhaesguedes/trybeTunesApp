@@ -3,6 +3,7 @@ import { SongType } from '../types';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 import Loading from '../components/Loading';
 import MusicCard from '../components/MusicCard';
+import Navbar from '../components/Navbar';
 import '../css/favorites.css';
 
 function Favorites() {
@@ -27,6 +28,7 @@ function Favorites() {
 
   return (
     <div className="container-favorites">
+      <Navbar />
       <div className="header-favorites">
         <h1 className="title-favorites">Músicas Favoritas</h1>
       </div>
