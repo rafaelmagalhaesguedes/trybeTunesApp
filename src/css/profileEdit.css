@@ -234,3 +234,27 @@ input:focus, textarea:focus {
   justify-content: center;
   width: 100%;
 }
+
+
+@media only screen and ( max-width : 768px ) {
+
+  .main-edit-profile {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+  }
+
+  .image-user-profile {
+    width: 100%;
+  }
+
+  .form-edit-profile {
+    margin-top: -50px;
+    padding-left: 30px;
+    width: 100%;
+  }
+
+  .input-edit-description > textarea {
+    width: 288px;
+  }
+}

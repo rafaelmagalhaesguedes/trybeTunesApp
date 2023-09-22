@@ -83,7 +83,7 @@ function ProfileEdit() {
   return (
     <div className="container-edit-profile">
 
-      <header className="header-edit-profile" />
+      <div className="header-edit-profile" />
 
       <main className="main-edit-profile">
 
