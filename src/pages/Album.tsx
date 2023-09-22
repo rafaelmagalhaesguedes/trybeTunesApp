@@ -52,6 +52,20 @@ export default function Album() {
           <div className="album-cover">
             <img src={ album?.artworkUrl100 } alt="capa álbum" />
           </div>
+          <div className="wrapper-album-mobile">
+            <h1
+              className="album-name-mobile"
+              data-testid="album-name"
+            >
+              {album?.collectionName}
+            </h1>
+            <h2
+              className="album-artist-mobile"
+              data-testid="artist-name"
+            >
+              {album?.artistName}
+            </h2>
+          </div>
           <div className="album-music">
             {songs.map((song) => (
               <div className="music" key={ song.trackId }>

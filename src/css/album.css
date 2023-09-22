@@ -1,3 +1,7 @@
+.wrapper-album-mobile {
+  display: none;
+}
+
 .album-container {
   background: rgba(239, 243, 249, 1);
   height: auto;
@@ -70,7 +74,19 @@
     height: 200px;
   }
 
+  .album-name-mobile {
+    color: black;
+  }
+
+  .album-artist {
+    color: black;
+  }
+
   .wrapper-album {
+    display: none;
+  }
+
+  .wrapper-album-mobile {
     padding: 10px;
     text-align: center;
   }
@@ -99,7 +115,7 @@
   }
 
   .music-name {
-    width: 100%;
+    display: none;
   }
 
   .album-cover {
@@ -107,5 +123,9 @@
     padding: 20px;
     text-align: center;
     width: 100%;
+  }
+
+  .album-cover img {
+    bottom: 120px;
   }
 }
