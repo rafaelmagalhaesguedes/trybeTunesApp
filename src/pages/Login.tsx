@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
+import { Main, Section } from '../components/Login/styles';
 import LoginLoading from '../components/Login/LoginLoading';
 import LoginForm from '../components/Login/LoginForm';
-import { Main, Section } from '../components/Login/styles';
-import '../components/Login/login.css';
 
 export default function Login() {
   const navigate = useNavigate();

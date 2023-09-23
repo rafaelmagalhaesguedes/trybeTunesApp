@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Logo from '../../images/logo.png';
+import { Login, Form, Image, Input, Button } from './styles';
 
 interface LoginFormProps {
   onSubmit: (name: string) => void;
@@ -23,11 +24,10 @@ function LoginForm({ onSubmit } : LoginFormProps) {
   };
 
   return (
-    <div className="login">
-      <form className="form-login" onSubmit={ handleSubmit }>
-        <img className="img-logo" src={ Logo } alt="Logo" />
-        <input
-          className="input-login"
+    <Login>
+      <Form onSubmit={ handleSubmit }>
+        <Image src={ Logo } alt="Logo" />
+        <Input
           data-testid="login-name-input"
           id="name"
           name="name"
@@ -36,16 +36,16 @@ function LoginForm({ onSubmit } : LoginFormProps) {
           placeholder="qual é o seu nome?"
           required
         />
-        <button
+        <Button
           className="button-login"
           data-testid="login-submit-button"
           type="submit"
           disabled={ !validaInput }
         >
           Entrar
-        </button>
-      </form>
-    </div>
+        </Button>
+      </Form>
+    </Login>
   );
 }
 
