@@ -7,7 +7,7 @@ function ButtonBackToTop() {
   const [isVisible, setIsVisible] = useState(false);
 
   const handleScroll = () => {
-    if (window.pageYOffset > 300) {
+    if (window.scrollY > 300) {
       setIsVisible(true);
     } else {
       setIsVisible(false);
