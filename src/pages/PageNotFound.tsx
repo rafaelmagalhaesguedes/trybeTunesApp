@@ -1,4 +1,4 @@
-import '../css/pageNotFound.css';
+import '../components/PageNotFound/pageNotFound.css';
 
 function PageNotFound() {
   return (
