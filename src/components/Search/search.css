@@ -9,7 +9,7 @@
 
 .form {
   align-items: center;
-  background-image: url('../images/bg_search_blue.png') , linear-gradient(135deg, rgb(0, 59, 229, 1), rgb(0, 213, 226, 1));
+  background-image: url('../../images/bg_search_blue.png') , linear-gradient(135deg, rgb(0, 59, 229, 1), rgb(0, 213, 226, 1));
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

@@ -22,7 +22,7 @@
 .spinner {
   animation: spin 3s linear infinite; /* Animação de rotação */
   background-color: transparent;
-  background-image: url('../images/spinner.png');
+  background-image: url('../../images/spinner.png');
   height: 40px; /* Altura do spinner */
   width: 40px; /* Largura do spinner */
 }
