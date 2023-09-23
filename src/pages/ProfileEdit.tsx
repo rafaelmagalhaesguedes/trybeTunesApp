@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleExclamation } from '@fortawesome/free-solid-svg-icons';
-import { UserType } from '../types';
 import { getUser, updateUser } from '../services/userAPI';
+import ProfileEditForm from '../components/ProfileEdit/ProfileEditForm';
+import ProfileEditHeader from '../components/ProfileEdit/ProfileEditHeader';
+import ProfileEditImage from '../components/ProfileEdit/ProfileEditImage';
 import Loading from '../components/Loading/Loading';
-import Navbar from '../components/Navbar/Navbar';
-import '../css/profileEdit.css';
-import imagemPadrao from '../images/user-mock.png';
+import '../components/ProfileEdit/profileEdit.css';
+import { UserType } from '../types';
 
 function ProfileEdit() {
   const navigate = useNavigate();
@@ -84,116 +83,26 @@ function ProfileEdit() {
 
   return (
     <div className="container-edit-profile">
-      <Navbar />
-      <div className="header-edit-profile" />
+
+      <ProfileEditHeader />
 
       <main className="main-edit-profile">
 
         {!loading ? (
           <>
-            <div className="image-user-profile">
-              <img
-                className="image-user-edit-profile"
-                src={ user.image || imagemPadrao }
-                alt="ImageUserProfile"
-              />
-            </div>
+            <ProfileEditImage
+              userData={ user }
+            />
 
-            <form className="form-edit-profile">
-
-              <div className="input-edit">
-                <label htmlFor="name">Nome</label>
-                <p>Fique à vontade para usar seu nome social</p>
-                <input
-                  data-testid="edit-input-name"
-                  id="name"
-                  name="name"
-                  value={ user.name }
-                  onChange={ handleChange }
-                  placeholder="Nome"
-                  required
-                />
-              </div>
-
-              <div className="input-edit-email">
-                <label htmlFor="email">E-mail</label>
-                <p>Escolha um e-mail que consulte diariamente</p>
-              </div>
-              <div className="input-icon-edit">
-                <input
-                  data-testid="edit-input-email"
-                  id="email"
-                  name="email"
-                  value={ user.email }
-                  onChange={ handleChange }
-                  placeholder="email@email.com"
-                  required
-                />
-                {validateEmail() ? (
-                  <FontAwesomeIcon
-                    className="icon-valid"
-                    icon={ faCircleExclamation }
-                  />
-                ) : (
-                  <FontAwesomeIcon
-                    className="icon-invalid"
-                    icon={ faCircleExclamation }
-                  />
-                )}
-              </div>
-
-              <div className="input-edit-description">
-                <label htmlFor="description">Description</label>
-                <textarea
-                  className="edit-textarea"
-                  data-testid="edit-input-description"
-                  id="description"
-                  name="description"
-                  value={ user.description }
-                  onChange={ handleChangeTextArea }
-                  placeholder="Sobre mim"
-                  required
-                />
-              </div>
-
-              <div className="input-edit-image-url">
-                <label htmlFor="image">Image url</label>
-              </div>
-              <div className="input-icon-edit-url">
-                <input
-                  data-testid="edit-input-image"
-                  id="image"
-                  name="image"
-                  value={ user.image }
-                  onChange={ handleChange }
-                  placeholder="Insira um link"
-                  required
-                />
-                {validateURL() ? (
-                  <FontAwesomeIcon
-                    className="icon-valid"
-                    icon={ faCircleExclamation }
-                  />
-                ) : (
-                  <FontAwesomeIcon
-                    className="icon-invalid"
-                    icon={ faCircleExclamation }
-                  />
-                )}
-              </div>
-
-              <div className="button-save-form">
-                <button
-                  data-testid="edit-button-save"
-                  type="submit"
-                  onClick={ handleSubmit }
-                  disabled={ !validateInputs() }
-                >
-                  Salvar
-                </button>
-              </div>
-
-            </form>
+            <ProfileEditForm
+              user={ user }
+              onChange={ handleChange }
+              onChangeTextArea={ handleChangeTextArea }
+              handleSubmit={ handleSubmit }
+              validateInputs={ validateInputs }
+              validateEmail={ validateEmail }
+              validateURL={ validateURL }
+            />
           </>
         ) : (
           <div className="loading-profile-edit">
