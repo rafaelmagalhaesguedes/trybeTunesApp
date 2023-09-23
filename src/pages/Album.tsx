@@ -1,14 +1,14 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import getMusics from '../services/musicsAPI';
-import { getFavoriteSongs } from '../services/favoriteSongsAPI';
-import Loading from '../components/Loading/Loading';
-import AlbumDetails from '../components/Album/AlbumDetails';
-import Navbar from '../components/Navbar/Navbar';
-import AlbumHeader from '../components/Album/AlbumHeader';
 import { AlbumType, SongType } from '../types';
-import '../components/Album/album.css';
+import { getFavoriteSongs } from '../services/favoriteSongsAPI';
+import { AlbumContainer, LoadingAlbum } from '../components/Album/Styles';
 import ButtonBackToTop from '../components/ButtonBackToTop/BackToTop';
+import AlbumDetails from '../components/Album/AlbumDetails';
+import AlbumHeader from '../components/Album/AlbumHeader';
+import Loading from '../components/Loading/Loading';
+import Navbar from '../components/Navbar/Navbar';
 
 export default function Album() {
   const { id } = useParams<{ id: string }>();
@@ -41,17 +41,21 @@ export default function Album() {
   }, [id]);
 
   return (
-    <div className="album-container">
+    <AlbumContainer>
       <Navbar />
       <AlbumHeader album={ album } />
       {!loading ? (
-        <AlbumDetails album={ album } songs={ songs } favoriteSongs={ favoriteSongs } />
+        <AlbumDetails
+          album={ album }
+          songs={ songs }
+          favoriteSongs={ favoriteSongs }
+        />
       ) : (
-        <div className="loading-album">
+        <LoadingAlbum>
           <Loading />
-        </div>
+        </LoadingAlbum>
       )}
       <ButtonBackToTop />
-    </div>
+    </AlbumContainer>
   );
 }

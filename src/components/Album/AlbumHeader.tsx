@@ -1,4 +1,5 @@
 import { AlbumType } from '../../types';
+import { AlbumArtist, AlbumHeaderContainer, AlbumName, WrapperAlbum } from './Styles';
 
 type AlbumHeaderProps = {
   album: AlbumType | null;
@@ -6,12 +7,12 @@ type AlbumHeaderProps = {
 
 function AlbumHeader({ album } : AlbumHeaderProps) {
   return (
-    <div className="album-header">
-      <div className="wrapper-album">
-        <h1 className="album-name" data-testid="album-name">{album?.collectionName}</h1>
-        <h2 className="album-artist" data-testid="artist-name">{album?.artistName}</h2>
-      </div>
-    </div>
+    <AlbumHeaderContainer>
+      <WrapperAlbum>
+        <AlbumName>{album?.collectionName}</AlbumName>
+        <AlbumArtist>{album?.artistName}</AlbumArtist>
+      </WrapperAlbum>
+    </AlbumHeaderContainer>
   );
 }
 

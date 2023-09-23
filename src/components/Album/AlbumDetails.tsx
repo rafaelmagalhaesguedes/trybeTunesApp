@@ -1,5 +1,15 @@
 import MusicCard from '../MusicCard/MusicCard';
 import { AlbumType, SongType } from '../../types';
+import {
+  AlbumArtistMobile,
+  AlbumCover,
+  AlbumCoverImage,
+  AlbumMusic,
+  AlbumNameMobile,
+  SectionDetails,
+  WrapperAlbumMobile,
+  Music,
+} from './Styles';
 
 interface AlbumDetailsProps {
   album: AlbumType | null;
@@ -9,21 +19,21 @@ interface AlbumDetailsProps {
 
 function AlbumDetails({ album, songs, favoriteSongs } : AlbumDetailsProps) {
   return (
-    <div className="album-details">
-      <div className="album-cover">
-        <img src={ album?.artworkUrl100 } alt="capa álbum" />
-      </div>
-      <div className="wrapper-album-mobile">
-        <h1 className="album-name-mobile" data-testid="album-name">
+    <SectionDetails>
+      <AlbumCover>
+        <AlbumCoverImage src={ album?.artworkUrl100 } alt="capa álbum" />
+      </AlbumCover>
+      <WrapperAlbumMobile>
+        <AlbumNameMobile data-testid="album-name">
           {album?.collectionName}
-        </h1>
-        <h2 className="album-artist-mobile" data-testid="artist-name">
+        </AlbumNameMobile>
+        <AlbumArtistMobile data-testid="artist-name">
           {album?.artistName}
-        </h2>
-      </div>
-      <div className="album-music">
+        </AlbumArtistMobile>
+      </WrapperAlbumMobile>
+      <AlbumMusic>
         {songs.map((song) => (
-          <div className="music" key={ song.trackId }>
+          <Music key={ song.trackId }>
             <MusicCard
               dataSong={ song }
               favoriteSong={ favoriteSongs.some(
@@ -31,10 +41,10 @@ function AlbumDetails({ album, songs, favoriteSongs } : AlbumDetailsProps) {
               ) }
               removeFavoriteSong={ () => {} }
             />
-          </div>
+          </Music>
         ))}
-      </div>
-    </div>
+      </AlbumMusic>
+    </SectionDetails>
   );
 }
 
