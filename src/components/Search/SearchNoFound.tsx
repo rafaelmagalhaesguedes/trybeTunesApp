@@ -1,5 +1,5 @@
 import Error from '../../images/circle_error.png';
-import { ErrorMessageContainer, ErrorImage, ErrorMessage } from './styles';
+import { ErrorMessageContainer, ErrorImage, ErrorMessage } from './Styles';
 
 interface SearchNoFoundProps {
   resultState: boolean;

@@ -10,7 +10,7 @@ import {
   ErrorMessageContainer,
   ErrorImage,
   ErrorMessage,
-} from './styles';
+} from './Styles';
 
 type SearchResultProps = {
   searchResult: AlbumType[];

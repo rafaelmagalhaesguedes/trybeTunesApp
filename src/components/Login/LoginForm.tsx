@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Logo from '../../images/logo.png';
-import { Login, Form, Image, Input, Button } from './styles';
+import { Login, Form, Image, Input, Button } from './Styles';
 
 interface LoginFormProps {
   onSubmit: (name: string) => void;

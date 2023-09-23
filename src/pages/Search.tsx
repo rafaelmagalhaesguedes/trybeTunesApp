@@ -12,7 +12,7 @@ import {
   SectionResult,
   LoadingSearch,
   Result,
-} from '../components/Search/styles';
+} from '../components/Search/Styles';
 
 function Search() {
   const [searchResult, setSearchResult] = useState<AlbumType[]>([]);
@@ -37,11 +37,8 @@ function Search() {
 
   return (
     <SectionSearch>
-
       <Navbar />
-
       <SearchForm onSearch={ handleSubmit } />
-
       <SectionResult>
         {loading ? (
           <LoadingSearch>

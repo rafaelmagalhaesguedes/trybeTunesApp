@@ -1,4 +1,4 @@
-import { Loading, Spinner, SpinnerText } from './styles';
+import { Loading, Spinner, SpinnerText } from './Styles';
 
 export default function LoginLoading() {
   return (

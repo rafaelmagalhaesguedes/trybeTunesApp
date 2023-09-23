@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { Button, Form, Input, StyledFontAwesomeIcon } from './styles';
+import { Button, Form, Input, StyledFontAwesomeIcon } from './Styles';
 
 type SearchFormProps = {
   onSearch: (searchValue: string) => void;
@@ -33,9 +33,7 @@ function SearchForm({ onSearch } : SearchFormProps) {
         data-testid="search-artist-input"
         placeholder="Digite sua pesquisa"
       />
-
       <StyledFontAwesomeIcon icon={ faSearch } />
-
       <Button
         className="search-button-form"
         data-testid="search-artist-button"

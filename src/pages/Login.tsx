@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
-import { Main, Section } from '../components/Login/styles';
+import { Main, Section } from '../components/Login/Styles';
 import LoginLoading from '../components/Login/LoginLoading';
 import LoginForm from '../components/Login/LoginForm';
 
