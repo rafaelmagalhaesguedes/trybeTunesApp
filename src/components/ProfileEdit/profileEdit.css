@@ -193,6 +193,7 @@ input:focus, textarea:focus {
   border: none;
   border-radius: 100px;
   color: white;
+  cursor: pointer;
   font-family: Epilogue , sans-serif;
   font-size: 14px;
   font-weight: 700;

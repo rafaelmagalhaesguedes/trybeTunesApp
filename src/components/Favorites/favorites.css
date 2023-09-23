@@ -36,6 +36,14 @@
   width: 100%;
 }
 
+.checkbox-favorite {
+  display: none;
+}
+
+.checkbox-icon {
+  cursor: pointer;
+}
+
 .list-favorites {
   margin: 30px 0;
   width: 70%;

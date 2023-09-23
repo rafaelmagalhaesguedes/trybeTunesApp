@@ -54,9 +54,9 @@ function MusicCard({ dataSong, favoriteSong, removeFavoriteSong } : MusicCardPro
             checked={ isChecked }
           />
           {isChecked ? (
-            <img src={ iconChecked } alt="favorite" />
+            <img className="checkbox-icon" src={ iconChecked } alt="favorite" />
           ) : (
-            <img src={ iconUnChecked } alt="favorite" />
+            <img className="checkbox-icon" src={ iconUnChecked } alt="favorite" />
           )}
         </label>
       </div>
