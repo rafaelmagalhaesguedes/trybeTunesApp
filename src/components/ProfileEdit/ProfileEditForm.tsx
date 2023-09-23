@@ -42,6 +42,7 @@ function ProfileEditForm({
         <label htmlFor="email">E-mail</label>
         <p>Escolha um e-mail que consulte diariamente</p>
       </div>
+
       <div className="input-icon-edit">
         <input
           data-testid="edit-input-email"

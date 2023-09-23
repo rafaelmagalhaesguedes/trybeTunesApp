@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { getUser, updateUser } from '../services/userAPI';
 import ProfileEditForm from '../components/ProfileEdit/ProfileEditForm';
 import ProfileEditHeader from '../components/ProfileEdit/ProfileEditHeader';
@@ -9,7 +8,6 @@ import '../components/ProfileEdit/profileEdit.css';
 import { UserType } from '../types';
 
 function ProfileEdit() {
-  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [user, setUser] = useState<UserType>({
     name: '',
@@ -54,15 +52,15 @@ function ProfileEdit() {
     }
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     try {
       setLoading(true);
-      updateUser(user);
-      navigate('/profile');
+      await updateUser(user);
     } catch (error) {
       console.error('Error fetching data!', error);
     } finally {
       setLoading(false);
+      window.location.reload();
     }
   };
 
@@ -98,7 +96,7 @@ function ProfileEdit() {
               user={ user }
               onChange={ handleChange }
               onChangeTextArea={ handleChangeTextArea }
-              handleSubmit={ handleSubmit }
+              onSubmit={ handleSubmit }
               validateInputs={ validateInputs }
               validateEmail={ validateEmail }
               validateURL={ validateURL }
