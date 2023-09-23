@@ -1,11 +1,18 @@
 import { useEffect, useState } from 'react';
 import { SongType } from '../types';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
-import Loading from '../components/Loading/Loading';
-import MusicCard from '../components/MusicCard/MusicCard';
-import Navbar from '../components/Navbar/Navbar';
-import '../components/Favorites/favorites.css';
 import ButtonBackToTop from '../components/ButtonBackToTop/BackToTop';
+import MusicCard from '../components/MusicCard/MusicCard';
+import Loading from '../components/Loading/Loading';
+import Navbar from '../components/Navbar/Navbar';
+import {
+  ContainerFavorites,
+  HeaderFavorites,
+  ListFavorites,
+  LoadingFavorites,
+  MusicFavorites,
+  TitleFavorites,
+} from '../components/Favorites/Styles';
 
 function Favorites() {
   const [favoritesSongs, setFavoritesSongs] = useState<SongType[]>([]);
@@ -28,30 +35,30 @@ function Favorites() {
   }, []);
 
   return (
-    <div className="container-favorites">
+    <ContainerFavorites>
       <Navbar />
-      <div className="header-favorites">
-        <h1 className="title-favorites">Músicas Favoritas</h1>
-      </div>
+      <HeaderFavorites>
+        <TitleFavorites>Músicas Favoritas</TitleFavorites>
+      </HeaderFavorites>
       {!loading ? (
-        <div className="music-favorites">
+        <MusicFavorites>
           {favoritesSongs.map((song) => (
-            <div className="list-favorites" key={ song.trackId }>
+            <ListFavorites key={ song.trackId }>
               <MusicCard
                 dataSong={ song }
                 removeFavoriteSong={ fetchFavoriteSongsAPI }
                 favoriteSong
               />
-            </div>
+            </ListFavorites>
           ))}
-        </div>
+        </MusicFavorites>
       ) : (
-        <div className="loading-favorites">
+        <LoadingFavorites>
           <Loading />
-        </div>
+        </LoadingFavorites>
       )}
       <ButtonBackToTop />
-    </div>
+    </ContainerFavorites>
   );
 }
 

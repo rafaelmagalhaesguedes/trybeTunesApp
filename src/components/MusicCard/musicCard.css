@@ -30,6 +30,14 @@
   width: 3%;
 }
 
+.checkbox-favorite {
+  display: none;
+}
+
+.checkbox-icon {
+  cursor: pointer;
+}
+
 
 @media only screen and ( max-width : 760px ) {
 
