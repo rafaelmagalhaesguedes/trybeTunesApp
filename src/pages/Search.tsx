@@ -1,13 +1,18 @@
 import { useState } from 'react';
 import { AlbumType } from '../types';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
+import ButtonBackToTop from '../components/ButtonBackToTop/BackToTop';
 import SearchNoFound from '../components/Search/SearchNoFound';
 import SearchResult from '../components/Search/SearchResult';
 import SearchForm from '../components/Search/SearchForm';
 import Loading from '../components/Loading/Loading';
 import Navbar from '../components/Navbar/Navbar';
-import '../components/Search/search.css';
-import ButtonBackToTop from '../components/ButtonBackToTop/BackToTop';
+import {
+  SectionSearch,
+  SectionResult,
+  LoadingSearch,
+  Result,
+} from '../components/Search/styles';
 
 function Search() {
   const [searchResult, setSearchResult] = useState<AlbumType[]>([]);
@@ -31,19 +36,19 @@ function Search() {
   };
 
   return (
-    <section className="section-search">
+    <SectionSearch>
 
       <Navbar />
 
       <SearchForm onSearch={ handleSubmit } />
 
-      <div className="result-search">
+      <SectionResult>
         {loading ? (
-          <div className="loading-search">
+          <LoadingSearch>
             <Loading />
-          </div>
+          </LoadingSearch>
         ) : (
-          <div className="result">
+          <Result>
             {searchResult.length > 0 ? (
               <SearchResult
                 searchResult={ searchResult }
@@ -55,11 +60,11 @@ function Search() {
                 resultState={ resultState }
               />
             )}
-          </div>
+          </Result>
         )}
-      </div>
+      </SectionResult>
       <ButtonBackToTop />
-    </section>
+    </SectionSearch>
   );
 }
 

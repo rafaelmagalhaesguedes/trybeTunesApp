@@ -1,4 +1,5 @@
 import Error from '../../images/circle_error.png';
+import { ErrorMessageContainer, ErrorImage, ErrorMessage } from './styles';
 
 interface SearchNoFoundProps {
   resultState: boolean;
@@ -10,10 +11,12 @@ function SearchNoFound({ resultState } : SearchNoFoundProps) {
   }
 
   return (
-    <div style={ { textAlign: 'center', paddingTop: '150px' } }>
-      <img className="circle-error" src={ Error } alt="Error" />
-      <p className="search-error-message">Nenhum álbum foi encontrado</p>
-    </div>
+    <ErrorMessageContainer resultState={ resultState }>
+      <ErrorImage src={ Error } alt="Error" />
+      <ErrorMessage>
+        Nenhum álbum foi encontrado
+      </ErrorMessage>
+    </ErrorMessageContainer>
   );
 }
 

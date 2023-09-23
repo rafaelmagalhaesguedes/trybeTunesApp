@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useState } from 'react';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { Button, Form, Input, StyledFontAwesomeIcon } from './styles';
 
 type SearchFormProps = {
   onSearch: (searchValue: string) => void;
@@ -22,8 +22,8 @@ function SearchForm({ onSearch } : SearchFormProps) {
   };
 
   return (
-    <form className="form">
-      <input
+    <Form>
+      <Input
         className="search-input-form"
         type="text"
         name="searchValue"
@@ -34,9 +34,9 @@ function SearchForm({ onSearch } : SearchFormProps) {
         placeholder="Digite sua pesquisa"
       />
 
-      <FontAwesomeIcon className="icon-search" icon={ faSearch } />
+      <StyledFontAwesomeIcon icon={ faSearch } />
 
-      <button
+      <Button
         className="search-button-form"
         data-testid="search-artist-button"
         disabled={ !validateInput }
@@ -46,8 +46,8 @@ function SearchForm({ onSearch } : SearchFormProps) {
         } }
       >
         Procurar
-      </button>
-    </form>
+      </Button>
+    </Form>
   );
 }
 

@@ -1,12 +1,22 @@
 import { AlbumType } from '../../types';
 import AlbumCard from '../AlbumCard/AlbumCard';
 import Error from '../../images/circle_error.png';
+import {
+  ResultCard,
+  ResultSearch,
+  TitleAlbum,
+  TitleAlbumResult,
+  AlbumDetails,
+  ErrorMessageContainer,
+  ErrorImage,
+  ErrorMessage,
+} from './styles';
 
-interface SearchResultProps {
+type SearchResultProps = {
   searchResult: AlbumType[];
   searchResultTitle: string;
   resultState: boolean;
-}
+};
 
 function SearchResult({
   searchResult,
@@ -14,33 +24,30 @@ function SearchResult({
   resultState,
 } : SearchResultProps) {
   return (
-    <div className="result-search">
+    <ResultSearch>
       {searchResult.length > 0 ? (
-        <div className="result-card">
-          <div className="title-album">
-            <h1 className="title-album-result">
+        <ResultCard>
+          <TitleAlbum>
+            <TitleAlbumResult>
               Resultado de álbuns de:
               {' '}
               { searchResultTitle }
-            </h1>
-          </div>
-          <div className="album-card">
+            </TitleAlbumResult>
+          </TitleAlbum>
+          <AlbumDetails>
             <AlbumCard searchResult={ searchResult } />
-          </div>
-        </div>
+          </AlbumDetails>
+        </ResultCard>
       ) : (
-        <div
-          style={ {
-            display: resultState === false ? 'none' : 'block',
-            textAlign: 'center',
-            paddingTop: '150px',
-          } }
-        >
-          <img src={ Error } alt="Error" className="circle-error" />
-          <p className="search-error-message">Nenhum álbum foi encontrado</p>
-        </div>
+        <ErrorMessageContainer resultState={ resultState }>
+          <ErrorImage src={ Error } alt="Error" />
+          <ErrorMessage>
+            Nenhum álbum foi encontrado
+          </ErrorMessage>
+        </ErrorMessageContainer>
+
       )}
-    </div>
+    </ResultSearch>
   );
 }
 
