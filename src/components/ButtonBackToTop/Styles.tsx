@@ -1,8 +1,13 @@
 /*
-  ButtonBackToTop.css
+* Styles Component ButtonBackToTop
 */
+import styled from 'styled-components';
 
-.back-to-top {
+export const Section = styled.section`
+  /* Section button back to top */
+`;
+
+export const Button = styled.button`
   background-color: #007bff;
   border: none;
   border-radius: 50%;
@@ -15,9 +20,8 @@
   position: fixed;
   right: 5px;
   transition: background-color 0.3s , transform 0.3s;
-}
 
-.back-to-top:hover {
-  background-color: #0056b3;
-}
-
+  &:hover {
+    background-color: #0056b3;
+  }
+`;
