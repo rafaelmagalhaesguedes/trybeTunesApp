@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import { GlobalStyle } from './globalStyles';
 import {
   Login,
   Layout,
@@ -13,6 +14,7 @@ import {
 function App() {
   return (
     <div className="app">
+      <GlobalStyle />
       <Routes>
         <Route path="/" element={ <Login /> } />
         <Route path="/" element={ <Layout /> }>

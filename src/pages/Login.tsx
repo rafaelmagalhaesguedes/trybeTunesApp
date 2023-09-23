@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
 import LoginLoading from '../components/Login/LoginLoading';
 import LoginForm from '../components/Login/LoginForm';
+import { Main, Section } from '../components/Login/styles';
 import '../components/Login/login.css';
 
 export default function Login() {
@@ -22,8 +23,8 @@ export default function Login() {
   };
 
   return (
-    <main className="container-login">
-      <section className="section-login">
+    <Main>
+      <Section>
         {!loading ? (
           <LoginForm
             onSubmit={ handleSubmit }
@@ -31,7 +32,7 @@ export default function Login() {
         ) : (
           <LoginLoading />
         )}
-      </section>
-    </main>
+      </Section>
+    </Main>
   );
 }
