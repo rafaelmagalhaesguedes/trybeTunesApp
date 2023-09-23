@@ -7,6 +7,7 @@ import SearchForm from '../components/Search/SearchForm';
 import Loading from '../components/Loading/Loading';
 import Navbar from '../components/Navbar/Navbar';
 import '../components/Search/search.css';
+import ButtonBackToTop from '../components/ButtonBackToTop/BackToTop';
 
 function Search() {
   const [searchResult, setSearchResult] = useState<AlbumType[]>([]);
@@ -57,7 +58,7 @@ function Search() {
           </div>
         )}
       </div>
-
+      <ButtonBackToTop />
     </section>
   );
 }

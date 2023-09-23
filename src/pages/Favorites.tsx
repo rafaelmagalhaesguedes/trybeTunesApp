@@ -5,6 +5,7 @@ import Loading from '../components/Loading/Loading';
 import MusicCard from '../components/MusicCard/MusicCard';
 import Navbar from '../components/Navbar/Navbar';
 import '../components/Favorites/favorites.css';
+import ButtonBackToTop from '../components/ButtonBackToTop/BackToTop';
 
 function Favorites() {
   const [favoritesSongs, setFavoritesSongs] = useState<SongType[]>([]);
@@ -49,6 +50,7 @@ function Favorites() {
           <Loading />
         </div>
       )}
+      <ButtonBackToTop />
     </div>
   );
 }

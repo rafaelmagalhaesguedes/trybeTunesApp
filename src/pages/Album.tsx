@@ -8,6 +8,7 @@ import Navbar from '../components/Navbar/Navbar';
 import AlbumHeader from '../components/Album/AlbumHeader';
 import { AlbumType, SongType } from '../types';
 import '../components/Album/album.css';
+import ButtonBackToTop from '../components/ButtonBackToTop/BackToTop';
 
 export default function Album() {
   const { id } = useParams<{ id: string }>();
@@ -50,6 +51,7 @@ export default function Album() {
           <Loading />
         </div>
       )}
+      <ButtonBackToTop />
     </div>
   );
 }
