@@ -1,6 +1,15 @@
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { AlbumType } from '../../types';
-import './albumCard.css';
+import {
+  Card,
+  ListResults,
+  SectionAlbumCard,
+  Results,
+  AlbumLink,
+  AlbumCover,
+  AlbumName,
+  ArtistName,
+} from './Styles';
 
 type AlbumCardProps = {
   searchResult: AlbumType[],
@@ -9,13 +18,12 @@ type AlbumCardProps = {
 function AlbumCard({ searchResult } : AlbumCardProps) {
   const navigate = useNavigate();
   return (
-    <div className="album-card">
-      <ul className="list-results">
+    <SectionAlbumCard>
+      <ListResults>
         {searchResult.map((album) => (
-          <div className="card" key={ album.collectionId }>
-            <li className="results">
-              <Link
-                className="link-album"
+          <Card key={ album.collectionId }>
+            <Results>
+              <AlbumLink
                 to={ `/album/${album.collectionId}` }
                 data-testid={ `link-to-album-${album.collectionId}` }
                 onClick={ (e) => {
@@ -23,19 +31,15 @@ function AlbumCard({ searchResult } : AlbumCardProps) {
                   navigate(`/album/${album.collectionId}`);
                 } }
               >
-                <img
-                  className="cover-album"
-                  src={ album.artworkUrl100 }
-                  alt="cover album"
-                />
-                {album.collectionName}
-                <p className="artist-name">{album.artistName}</p>
-              </Link>
-            </li>
-          </div>
+                <AlbumCover src={ album.artworkUrl100 } alt="cover album" />
+                <AlbumName>{album.collectionName}</AlbumName>
+                <ArtistName>{album.artistName}</ArtistName>
+              </AlbumLink>
+            </Results>
+          </Card>
         ))}
-      </ul>
-    </div>
+      </ListResults>
+    </SectionAlbumCard>
   );
 }
 

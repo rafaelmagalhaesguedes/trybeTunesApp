@@ -1,29 +1,33 @@
-.list-results {
+/*
+* Styles Component Album
+*/
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+
+export const SectionAlbumCard = styled.section`
+  /* Section Album Card */
+`;
+
+export const ListResults = styled.ul`
   display: flex;
   flex-flow: row wrap;
   gap: 2rem;
   justify-content: center;
   list-style-type: none;
-}
+`;
 
-.card {
+export const Card = styled.div`
   height: 248px;
   margin-bottom: 30px;
   width: 200px;
-}
+`;
 
-.results {
+export const Results = styled.li`
   display: flex;
   flex-direction: column;
-}
+`;
 
-.cover-album {
-  border-radius: 10px;
-  height: 200px;
-  width: 200px;
-}
-
-.link-album {
+export const AlbumLink = styled(Link)`
   color: rgba(61, 73, 92, 1);
   font-family: Epilogue , sans-serif;
   font-size: 12px;
@@ -34,25 +38,22 @@
   text-decoration: none;
   text-overflow: ellipsis;
   white-space: wrap;
-}
+`;
 
-.artist-name {
+export const AlbumCover = styled.img`
+  border-radius: 10px;
+  height: 200px;
+  width: 200px;
+`;
+
+export const AlbumName = styled.p`
   font-family: Epilogue , sans-serif;
   font-size: 11px;
   font-weight: 400;
   line-height: 14px;
   text-align: left;
-}
+`;
 
-@media only screen and ( max-width : 768px ) {
-
-  .music-card {
-    align-items: flex-start;
-    border-bottom: 1px solid gainsboro;
-    display: flex;
-    flex-flow: column;
-    gap: 1rem;
-    margin: 20px 0;
-    width: 100%;
-  }
-}
+export const ArtistName = styled.p`
+  /* Estilos para o nome do artista */
+`;
