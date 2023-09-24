@@ -7,9 +7,9 @@ import imagemPadrao from '../../images/user-mock.png';
 import { getUser } from '../../services/userAPI';
 import {
   Logo,
+  NavbarResponsive,
   NavbarContainer,
   NavbarLogo,
-  NavbarResponsive,
   MenuToggleButton,
   NavbarLinks,
   UserInfos,

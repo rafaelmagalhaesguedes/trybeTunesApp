@@ -1,13 +1,13 @@
 /*
 *  Component Loading
 */
-import './loading.css';
+import { Spinner } from './Styles';
 
 export default function Loading() {
   return (
-    <div className="box-spinner">
+    <Spinner>
       <p className="spinner" />
       <p className="text-spinner">Carregando...</p>
-    </div>
+    </Spinner>
   );
 }
