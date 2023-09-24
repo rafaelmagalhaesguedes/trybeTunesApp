@@ -1,9 +1,15 @@
 import { useState } from 'react';
+import { addSong, removeSong } from '../../services/favoriteSongsAPI';
 import iconChecked from '../../images/checked_heart.png';
 import iconUnChecked from '../../images/empty_heart.png';
-import { addSong, removeSong } from '../../services/favoriteSongsAPI';
 import { SongType } from '../../types';
 import './musicCard.css';
+import {
+  MusicAudio,
+  MusicFavorite,
+  MusicName,
+  SectionMusicCard,
+} from './Styles';
 
 type MusicCardProps = {
   dataSong: SongType,
@@ -28,11 +34,11 @@ function MusicCard({ dataSong, favoriteSong, removeFavoriteSong } : MusicCardPro
   };
 
   return (
-    <div className="music-card">
-      <div className="music-name">
+    <SectionMusicCard>
+      <MusicName>
         <p>{trackName}</p>
-      </div>
-      <div className="music-audio">
+      </MusicName>
+      <MusicAudio>
         <audio
           className="audio-container"
           data-testid="audio-component"
@@ -44,8 +50,8 @@ function MusicCard({ dataSong, favoriteSong, removeFavoriteSong } : MusicCardPro
           <code>audio</code>
           .
         </audio>
-      </div>
-      <div className="music-favorite">
+      </MusicAudio>
+      <MusicFavorite>
         <label data-testid={ `checkbox-music-${trackId}` }>
           <input
             className="checkbox-favorite"
@@ -59,8 +65,8 @@ function MusicCard({ dataSong, favoriteSong, removeFavoriteSong } : MusicCardPro
             <img className="checkbox-icon" src={ iconUnChecked } alt="favorite" />
           )}
         </label>
-      </div>
-    </div>
+      </MusicFavorite>
+    </SectionMusicCard>
   );
 }
 

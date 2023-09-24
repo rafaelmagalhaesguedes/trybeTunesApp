@@ -121,7 +121,6 @@ export const AlbumMusic = styled.div`
   width: 60%;
 
   @media only screen and ( max-width : 768px ) {
-    align-items: center;
     display: flex;
     flex-direction: column;
     padding: 12px;
