@@ -1,10 +1,16 @@
-import { Link } from 'react-router-dom';
 import { UserType } from '../../types';
 import imagemPadrao from '../../images/user-mock.png';
 import {
   SectionProfile,
   UserImageProfile,
   UserDataProfile,
+  Label,
+  Data,
+  UserName,
+  UserEmail,
+  UserDescription,
+  Button,
+  ImageUser,
 } from './Styles';
 
 interface UserProfileProps {
@@ -15,29 +21,28 @@ function UserProfile({ user } : UserProfileProps) {
   return (
     <SectionProfile>
       <UserImageProfile>
-        <img
-          className="imageUser"
+        <ImageUser
           src={ user?.image || imagemPadrao }
-          alt="user"
+          alt="Image user"
           data-testid="profile-image"
         />
       </UserImageProfile>
       <UserDataProfile>
-        <div className="user-name-profile">
-          <label htmlFor="data">Nome</label>
-          <p className="data">{user?.name}</p>
-        </div>
-        <div className="user-email">
-          <label htmlFor="data">Email</label>
-          <p className="data">{user?.email}</p>
-        </div>
-        <div className="user-description">
-          <label htmlFor="data">Descrição</label>
-          <p className="data">{user?.description}</p>
-        </div>
-        <Link to="/profile/edit" className="button-edit-profile">
+        <UserName>
+          <Label htmlFor="data">Nome</Label>
+          <Data>{user?.name}</Data>
+        </UserName>
+        <UserEmail>
+          <Label htmlFor="data">Email</Label>
+          <Data>{user?.email}</Data>
+        </UserEmail>
+        <UserDescription className="user-description">
+          <Label htmlFor="data">Descrição</Label>
+          <Data>{user?.description}</Data>
+        </UserDescription>
+        <Button to="/profile/edit">
           Editar perfil
-        </Link>
+        </Button>
       </UserDataProfile>
     </SectionProfile>
   );

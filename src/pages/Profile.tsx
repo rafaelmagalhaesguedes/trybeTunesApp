@@ -4,7 +4,6 @@ import { getUser } from '../services/userAPI';
 import UserProfile from '../components/Profile/UserProfile';
 import Loading from '../components/Loading/Loading';
 import Navbar from '../components/Navbar/Navbar';
-import '../components/Profile/profile.css';
 import {
   ContainerProfile,
   HeaderProfile,
