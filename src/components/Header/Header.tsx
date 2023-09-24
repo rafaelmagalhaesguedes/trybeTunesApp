@@ -1,12 +1,21 @@
-import { NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faStar, faUser } from '@fortawesome/free-solid-svg-icons';
+import imagemPadrao from '../../images/user-mock.png';
 import { getUser } from '../../services/userAPI';
 import Loading from '../Loading/Loading';
-import './header.css';
 import Logo from '../../images/logo.png';
-import imagemPadrao from '../../images/user-mock.png';
+import {
+  ContainerHeader,
+  HeaderLogo,
+  NavbarHeader,
+  NavbarIcon,
+  NavbarLink,
+  NavbarUserInfo,
+  HeaderLoading,
+  UserImage,
+  UserName,
+} from './Styles';
 
 export default function Header() {
   const [name, setName] = useState('');
@@ -30,35 +39,35 @@ export default function Header() {
   }, []);
 
   return (
-    <header data-testid="header-component">
+    <ContainerHeader data-testid="header-component">
       <Link to="/search">
-        <img className="header-logo" src={ Logo } alt="Logo" />
+        <HeaderLogo src={ Logo } alt="Logo" />
       </Link>
 
-      <nav className="navbar">
-        <NavLink to="/search" className="nav-link" data-testid="link-to-search">
-          <FontAwesomeIcon className="icon" icon={ faSearch } />
+      <NavbarHeader>
+        <NavbarLink to="/search" data-testid="link-to-search">
+          <NavbarIcon icon={ faSearch } />
           Search
-        </NavLink>
-        <NavLink to="/favorites" className="nav-link" data-testid="link-to-favorites">
-          <FontAwesomeIcon className="icon" icon={ faStar } />
+        </NavbarLink>
+        <NavbarLink to="/favorites" data-testid="link-to-favorites">
+          <NavbarIcon icon={ faStar } />
           Favorites
-        </NavLink>
-        <NavLink to="/profile" className="nav-link" data-testid="link-to-profile">
-          <FontAwesomeIcon className="icon" icon={ faUser } />
+        </NavbarLink>
+        <NavbarLink to="/profile" data-testid="link-to-profile">
+          <NavbarIcon icon={ faUser } />
           Profile
-        </NavLink>
-      </nav>
+        </NavbarLink>
+      </NavbarHeader>
       {!loading ? (
-        <div className="user">
-          <img className="image-user" src={ imageUser || imagemPadrao } alt="imageUser" />
-          <p className="user-name" data-testid="header-user-name">{name}</p>
-        </div>
+        <NavbarUserInfo>
+          <UserImage src={ imageUser || imagemPadrao } alt="imageUser" />
+          <UserName data-testid="header-user-name">{name}</UserName>
+        </NavbarUserInfo>
       ) : (
-        <div className="loading-header">
+        <HeaderLoading>
           <Loading />
-        </div>
+        </HeaderLoading>
       )}
-    </header>
+    </ContainerHeader>
   );
 }
