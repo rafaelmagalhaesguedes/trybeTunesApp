@@ -34,6 +34,34 @@ export const MainEditProfile = styled.main`
   }
 `;
 
+export const ImageUserProfile = styled.div`
+  bottom: 80px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 35%;
+
+  @media only screen and ( max-width : 768px ) {
+    width: 100%;
+  }
+`;
+
+export const ImageUser = styled.img`
+  background-color: rgb(143, 188, 255);
+  border: 1px solid silver;
+  border-radius: 240px;
+  box-shadow: -9px 8px 8px 0 #0033;
+  height: 240px;
+  width: 240px;
+`;
+
+/*
+  CSS component Profile Edit Form
+*/
+
+/*
+  CSS component Loading Profile
+*/
 export const LoadingEditProfile = styled.div`
   align-content: center;
   align-items: center;
@@ -42,7 +70,3 @@ export const LoadingEditProfile = styled.div`
   justify-content: center;
   width: 100%;
 `;
-
-/*
-  CSS Page Profile
- */

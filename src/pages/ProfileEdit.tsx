@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getUser, updateUser } from '../services/userAPI';
 import ProfileEditForm from '../components/ProfileEdit/ProfileEditForm';
-import ProfileEditImage from '../components/ProfileEdit/ProfileEditImage';
+import imagemPadrao from '../images/user-mock.png';
 import Loading from '../components/Loading/Loading';
 import Navbar from '../components/Navbar/Navbar';
 import { UserType } from '../types';
@@ -10,6 +10,8 @@ import {
   HeaderEditProfile,
   LoadingEditProfile,
   MainEditProfile,
+  ImageUser,
+  ImageUserProfile,
 } from '../components/ProfileEdit/Styles';
 
 function ProfileEdit() {
@@ -91,9 +93,13 @@ function ProfileEdit() {
       <MainEditProfile>
         {!loading ? (
           <>
-            <ProfileEditImage
-              userData={ user }
-            />
+            <ImageUserProfile>
+              <ImageUser
+                src={ user.image || imagemPadrao }
+                alt="Image User Profile"
+              />
+            </ImageUserProfile>
+
             <ProfileEditForm
               user={ user }
               onChange={ handleChange }
