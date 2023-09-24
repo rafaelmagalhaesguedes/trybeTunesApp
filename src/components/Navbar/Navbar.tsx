@@ -35,6 +35,16 @@ function Navbar() {
         <div className="logo-navbar">
           <img className="logo" src={ LogoMobile } alt="Logo" />
         </div>
+
+        <button
+          className={ `menu-toggle ${isOpen ? 'active' : ''}` }
+          onClick={ toggleMenu }
+        >
+          <div className="bar" />
+          <div className="bar" />
+          <div className="bar" />
+        </button>
+
         <div className={ `navbar-links ${isOpen ? 'active' : ''}` }>
           <Link to="/search" className="link">
             <FontAwesomeIcon className="icon" icon={ faSearch } />
@@ -60,14 +70,6 @@ function Navbar() {
             <p className="user-name" data-testid="header-user-name">{ name }</p>
           </div>
         </div>
-        <button
-          className={ `menu-toggle ${isOpen ? 'active' : ''}` }
-          onClick={ toggleMenu }
-        >
-          <div className="bar" />
-          <div className="bar" />
-          <div className="bar" />
-        </button>
       </div>
     </nav>
   );

@@ -19,6 +19,7 @@
     display: block;
     padding: 10px 0;
     position: absolute;
+    width: 100%;
   }
 
   .navbar-container {
