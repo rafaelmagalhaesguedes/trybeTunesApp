@@ -8,7 +8,7 @@ import {
   Favorites,
   Profile,
   ProfileEdit,
-  PageNotFound,
+  PageNoFound,
 } from './pages';
 
 function App() {
@@ -24,7 +24,7 @@ function App() {
           <Route path="/profile" element={ <Profile /> } />
           <Route path="/profile/edit" element={ <ProfileEdit /> } />
         </Route>
-        <Route path="*" element={ <PageNotFound /> } />
+        <Route path="*" element={ <PageNoFound /> } />
       </Routes>
     </div>
   );
