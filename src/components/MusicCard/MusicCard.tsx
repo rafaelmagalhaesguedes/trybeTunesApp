@@ -3,7 +3,6 @@ import { addSong, removeSong } from '../../services/favoriteSongsAPI';
 import iconChecked from '../../images/checked_heart.png';
 import iconUnChecked from '../../images/empty_heart.png';
 import { SongType } from '../../types';
-import './musicCard.css';
 import {
   MusicAudio,
   MusicFavorite,
