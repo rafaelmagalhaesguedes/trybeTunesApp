@@ -2,10 +2,18 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faStar, faUser } from '@fortawesome/free-solid-svg-icons';
+import LogoMobile from '../../images/logo-mobile.png';
 import imagemPadrao from '../../images/user-mock.png';
 import { getUser } from '../../services/userAPI';
-import LogoMobile from '../../images/logo-mobile.png';
-import './navbar.css';
+import {
+  Logo,
+  NavbarContainer,
+  NavbarLogo,
+  NavbarResponsive,
+  MenuToggleButton,
+  NavbarLinks,
+  UserInfos,
+} from './Styles';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,27 +33,27 @@ function Navbar() {
     handleUserName();
   }, []);
 
-  const toggleMenu = () => {
+  const handleToggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
   return (
-    <nav className="navbar-responsive">
-      <div className="navbar-container">
-        <div className="logo-navbar">
-          <img className="logo" src={ LogoMobile } alt="Logo" />
-        </div>
+    <NavbarResponsive>
+      <NavbarContainer>
+        <NavbarLogo>
+          <Logo src={ LogoMobile } alt="Logo" />
+        </NavbarLogo>
 
-        <button
-          className={ `menu-toggle ${isOpen ? 'active' : ''}` }
-          onClick={ toggleMenu }
+        <MenuToggleButton
+          className={ isOpen ? 'active' : '' }
+          onClick={ handleToggleMenu }
         >
           <div className="bar" />
           <div className="bar" />
           <div className="bar" />
-        </button>
+        </MenuToggleButton>
 
-        <div className={ `navbar-links ${isOpen ? 'active' : ''}` }>
+        <NavbarLinks className={ isOpen ? 'active' : '' }>
           <Link to="/search" className="link">
             <FontAwesomeIcon className="icon" icon={ faSearch } />
             {' '}
@@ -61,17 +69,17 @@ function Navbar() {
             {' '}
             <p className="text-icon">Profile</p>
           </Link>
-          <div className="user">
+          <UserInfos>
             <img
               className="image-user"
               src={ imageUser || imagemPadrao }
               alt="imageUser"
             />
             <p className="user-name" data-testid="header-user-name">{ name }</p>
-          </div>
-        </div>
-      </div>
-    </nav>
+          </UserInfos>
+        </NavbarLinks>
+      </NavbarContainer>
+    </NavbarResponsive>
   );
 }
 
