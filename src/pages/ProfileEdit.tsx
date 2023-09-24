@@ -1,11 +1,16 @@
 import { useEffect, useState } from 'react';
 import { getUser, updateUser } from '../services/userAPI';
 import ProfileEditForm from '../components/ProfileEdit/ProfileEditForm';
-import ProfileEditHeader from '../components/ProfileEdit/ProfileEditHeader';
 import ProfileEditImage from '../components/ProfileEdit/ProfileEditImage';
 import Loading from '../components/Loading/Loading';
-import '../components/ProfileEdit/profileEdit.css';
+import Navbar from '../components/Navbar/Navbar';
 import { UserType } from '../types';
+import {
+  ContainerEditProfile,
+  HeaderEditProfile,
+  LoadingEditProfile,
+  MainEditProfile,
+} from '../components/ProfileEdit/Styles';
 
 function ProfileEdit() {
   const [loading, setLoading] = useState(false);
@@ -80,18 +85,15 @@ function ProfileEdit() {
   }, []);
 
   return (
-    <div className="container-edit-profile">
-
-      <ProfileEditHeader />
-
-      <main className="main-edit-profile">
-
+    <ContainerEditProfile>
+      <Navbar />
+      <HeaderEditProfile />
+      <MainEditProfile>
         {!loading ? (
           <>
             <ProfileEditImage
               userData={ user }
             />
-
             <ProfileEditForm
               user={ user }
               onChange={ handleChange }
@@ -103,12 +105,12 @@ function ProfileEdit() {
             />
           </>
         ) : (
-          <div className="loading-profile-edit">
+          <LoadingEditProfile>
             <Loading />
-          </div>
+          </LoadingEditProfile>
         )}
-      </main>
-    </div>
+      </MainEditProfile>
+    </ContainerEditProfile>
   );
 }
 
