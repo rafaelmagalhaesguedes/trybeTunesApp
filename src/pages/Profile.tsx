@@ -5,6 +5,11 @@ import UserProfile from '../components/Profile/UserProfile';
 import Loading from '../components/Loading/Loading';
 import Navbar from '../components/Navbar/Navbar';
 import '../components/Profile/profile.css';
+import {
+  ContainerProfile,
+  HeaderProfile,
+  LoadingProfile,
+} from '../components/Profile/Styles';
 
 function Profile() {
   const [user, setUser] = useState<UserType | null>(null);
@@ -26,20 +31,17 @@ function Profile() {
   }, []);
 
   return (
-    <div className="container-profile">
-
+    <ContainerProfile>
       <Navbar />
-
-      <div className="header-profile" />
-
+      <HeaderProfile />
       {!loading ? (
         <UserProfile user={ user } />
       ) : (
-        <div className="loading-profile">
+        <LoadingProfile>
           <Loading />
-        </div>
+        </LoadingProfile>
       )}
-    </div>
+    </ContainerProfile>
   );
 }
 

@@ -1,6 +1,11 @@
 import { Link } from 'react-router-dom';
 import { UserType } from '../../types';
 import imagemPadrao from '../../images/user-mock.png';
+import {
+  SectionProfile,
+  UserImageProfile,
+  UserDataProfile,
+} from './Styles';
 
 interface UserProfileProps {
   user: UserType | null;
@@ -8,16 +13,16 @@ interface UserProfileProps {
 
 function UserProfile({ user } : UserProfileProps) {
   return (
-    <div className="section-profile">
-      <div className="foto-profile">
+    <SectionProfile>
+      <UserImageProfile>
         <img
-          className="foto"
+          className="imageUser"
           src={ user?.image || imagemPadrao }
           alt="user"
           data-testid="profile-image"
         />
-      </div>
-      <div className="user-profile">
+      </UserImageProfile>
+      <UserDataProfile>
         <div className="user-name-profile">
           <label htmlFor="data">Nome</label>
           <p className="data">{user?.name}</p>
@@ -33,8 +38,8 @@ function UserProfile({ user } : UserProfileProps) {
         <Link to="/profile/edit" className="button-edit-profile">
           Editar perfil
         </Link>
-      </div>
-    </div>
+      </UserDataProfile>
+    </SectionProfile>
   );
 }
 
