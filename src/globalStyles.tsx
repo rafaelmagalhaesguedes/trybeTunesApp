@@ -11,13 +11,6 @@ export const GlobalStyle = createGlobalStyle`
     font-family: Epilogue , sans-serif;
   }
   
-  .container {
-    display: flex;
-    flex-flow: row nowrap;
-    width: 100%;
-    height: auto;
-  }
-  
   code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
