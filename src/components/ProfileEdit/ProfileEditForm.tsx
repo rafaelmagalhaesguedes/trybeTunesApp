@@ -2,6 +2,26 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleExclamation } from '@fortawesome/free-solid-svg-icons';
 import { UserType } from '../../types';
+import {
+  FormEditProfile,
+  Input,
+  EditEmail,
+  InputEditName,
+  Label,
+  Paragraph,
+  EditInputEmail,
+  EditEmailInputIcons,
+  EditInputDescription,
+  Textarea,
+  InputEditImage,
+  InputEditImageUrl,
+  InputImage,
+  ButtomSaveForm,
+  ButtomForm,
+  IconValid,
+  IconInvalid,
+  LinkCancel,
+} from './Styles';
 
 interface ProfileEditFormProps {
   user: UserType;
@@ -23,11 +43,15 @@ function ProfileEditForm({
   validateURL,
 } : ProfileEditFormProps) {
   return (
-    <form className="form-edit-profile">
-      <div className="input-edit">
-        <label htmlFor="name">Nome</label>
-        <p>Fique à vontade para usar seu nome social</p>
-        <input
+    <FormEditProfile>
+      <InputEditName>
+        <Label htmlFor="name">
+          Nome
+        </Label>
+        <Paragraph>
+          Fique à vontade para usar seu nome social
+        </Paragraph>
+        <Input
           data-testid="edit-input-name"
           id="name"
           name="name"
@@ -36,15 +60,19 @@ function ProfileEditForm({
           placeholder="Nome"
           required
         />
-      </div>
+      </InputEditName>
 
-      <div className="input-edit-email">
-        <label htmlFor="email">E-mail</label>
-        <p>Escolha um e-mail que consulte diariamente</p>
-      </div>
+      <EditEmail>
+        <Label htmlFor="email">
+          E-mail
+        </Label>
+        <Paragraph>
+          Escolha um e-mail que consulte diariamente
+        </Paragraph>
+      </EditEmail>
 
-      <div className="input-icon-edit">
-        <input
+      <EditEmailInputIcons>
+        <EditInputEmail
           data-testid="edit-input-email"
           id="email"
           name="email"
@@ -58,11 +86,13 @@ function ProfileEditForm({
         ) : (
           <FontAwesomeIcon className="icon-invalid" icon={ faCircleExclamation } />
         )}
-      </div>
+      </EditEmailInputIcons>
 
-      <div className="input-edit-description">
-        <label htmlFor="description">Description</label>
-        <textarea
+      <EditInputDescription>
+        <Label htmlFor="description">
+          Descrição
+        </Label>
+        <Textarea
           className="edit-textarea"
           data-testid="edit-input-description"
           id="description"
@@ -72,13 +102,16 @@ function ProfileEditForm({
           placeholder="Sobre mim"
           required
         />
-      </div>
+      </EditInputDescription>
 
-      <div className="input-edit-image-url">
-        <label htmlFor="image">Image url</label>
-      </div>
-      <div className="input-icon-edit-url">
-        <input
+      <InputEditImage>
+        <Label htmlFor="image">
+          Url da imagem
+        </Label>
+      </InputEditImage>
+
+      <InputEditImageUrl>
+        <InputImage
           data-testid="edit-input-image"
           id="image"
           name="image"
@@ -88,23 +121,24 @@ function ProfileEditForm({
           required
         />
         {validateURL() ? (
-          <FontAwesomeIcon className="icon-valid" icon={ faCircleExclamation } />
+          <IconValid icon={ faCircleExclamation } />
         ) : (
-          <FontAwesomeIcon className="icon-invalid" icon={ faCircleExclamation } />
+          <IconInvalid icon={ faCircleExclamation } />
         )}
-      </div>
+      </InputEditImageUrl>
 
-      <div className="button-save-form">
-        <button
+      <ButtomSaveForm>
+        <ButtomForm
           data-testid="edit-button-save"
           type="submit"
           onClick={ onSubmit }
           disabled={ !validateInputs() }
         >
           Salvar
-        </button>
-      </div>
-    </form>
+        </ButtomForm>
+        <LinkCancel to="/profile">Cancelar</LinkCancel>
+      </ButtomSaveForm>
+    </FormEditProfile>
   );
 }
 
