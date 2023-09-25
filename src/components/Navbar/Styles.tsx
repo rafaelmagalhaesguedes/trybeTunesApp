@@ -1,4 +1,10 @@
+/** *****************************************
+*
+*    CSS Styles Component Navbar Responsive
+*
+********************************************* */
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const NavbarResponsive = styled.nav`
   display: none;
@@ -36,6 +42,14 @@ export const Logo = styled.img`
   }
 `;
 
+export const Bar = styled.div`
+  background-color: white;
+  height: 5px;
+  margin: 3px 0;
+  transition: 0.4s;
+  width: 25px;
+`;
+
 export const MenuToggleButton = styled.button`
   display: none;
   
@@ -48,36 +62,28 @@ export const MenuToggleButton = styled.button`
     padding: 20px;
     z-index: 1000;
 
-    .bar {
-      background-color: white;
-      height: 5px;
-      margin: 3px 0;
-      transition: 0.4s;
-      width: 25px;
-    }
-
-    &.active .bar:nth-child(1) {
+    &.active ${Bar}:nth-child(1) {
       transform: rotate(-45deg) translate(-5px, 6px);
     }
 
-    &.active .bar:nth-child(2) {
+    &.active ${Bar}:nth-child(2) {
       opacity: 0;
     }
 
-    &.active .bar:nth-child(3) {
+    &.active ${Bar}:nth-child(3) {
       transform: rotate(45deg) translate(-5px, -6px);
     }
 
     &.active {
-      .bar:nth-child(1) {
+      ${Bar}:nth-child(1) {
         transform: rotate(-45deg) translate(-5px, 6px);
       }
 
-      .bar:nth-child(2) {
+      ${Bar}:nth-child(2) {
         opacity: 0;
       }
 
-      .bar:nth-child(3) {
+      ${Bar}:nth-child(3) {
         transform: rotate(45deg) translate(-5px, -6px);
       }
     }
@@ -103,36 +109,39 @@ export const NavbarLinks = styled.div`
     &.active {
       display: flex;
     }
-
-    a {
-      color: white;
-      font-size: 1.3rem;
-      text-decoration: none;
-    }
-
-    .link {
-      display: flex;
-      flex-direction: row;
-      gap: 2rem;
-    }
   }
+`;
+
+export const NavLink = styled(Link)`
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  color: white;
+  font-size: 1.3rem;
+  text-decoration: none;
 `;
 
 export const UserInfos = styled.div`
   @media only screen and ( max-width : 768px ) {
-    
+  
     align-items: center;
     display: flex;
     flex-direction: row;
     gap: 2rem;
-  
-    .image-user {
-      width: 100px;
-    }
   
     .user-name {
       color: white;
       font-size: 1.3rem;
     }
   }
+`;
+
+export const UserImage = styled.img`
+  border-radius: 100%;
+  width: 40%;
+`;
+
+export const Username = styled.p`
+  color: white;
+  width: 60%;
 `;

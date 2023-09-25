@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faStar, faUser } from '@fortawesome/free-solid-svg-icons';
 import LogoMobile from '../../images/logo-mobile.png';
@@ -12,7 +11,11 @@ import {
   NavbarLogo,
   MenuToggleButton,
   NavbarLinks,
+  NavLink,
   UserInfos,
+  Bar,
+  UserImage,
+  Username,
 } from './Styles';
 
 function Navbar() {
@@ -48,35 +51,37 @@ function Navbar() {
           className={ isOpen ? 'active' : '' }
           onClick={ handleToggleMenu }
         >
-          <div className="bar" />
-          <div className="bar" />
-          <div className="bar" />
+          <Bar />
+          <Bar />
+          <Bar />
         </MenuToggleButton>
 
         <NavbarLinks className={ isOpen ? 'active' : '' }>
-          <Link to="/search" className="link">
-            <FontAwesomeIcon className="icon" icon={ faSearch } />
-            {' '}
-            <p className="text-icon">Search</p>
-          </Link>
-          <Link to="/favorites" className="link">
-            <FontAwesomeIcon className="icon" icon={ faStar } />
-            {' '}
-            <p className="text-icon">Favorites</p>
-          </Link>
-          <Link to="/profile" className="link">
-            <FontAwesomeIcon className="icon" icon={ faUser } />
-            {' '}
-            <p className="text-icon">Profile</p>
-          </Link>
+          <NavLink to="/search">
+            <FontAwesomeIcon icon={ faSearch } />
+            Pesquisar
+          </NavLink>
+
+          <NavLink to="/favorites">
+            <FontAwesomeIcon icon={ faStar } />
+            Favoritas
+          </NavLink>
+
+          <NavLink to="/profile">
+            <FontAwesomeIcon icon={ faUser } />
+            Perfil
+          </NavLink>
+
           <UserInfos>
-            <img
-              className="image-user"
+            <UserImage
               src={ imageUser || imagemPadrao }
-              alt="imageUser"
+              alt="Imagem de perfil do usuário"
             />
-            <p className="user-name" data-testid="header-user-name">{ name }</p>
+            <Username data-testid="header-user-name">
+              { name }
+            </Username>
           </UserInfos>
+
         </NavbarLinks>
       </NavbarContainer>
     </NavbarResponsive>
