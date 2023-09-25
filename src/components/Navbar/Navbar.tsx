@@ -10,10 +10,10 @@ import {
   NavbarContainer,
   NavbarLogo,
   MenuToggleButton,
+  Bar,
   NavbarLinks,
   NavLink,
   UserInfos,
-  Bar,
   UserImage,
   Username,
 } from './Styles';

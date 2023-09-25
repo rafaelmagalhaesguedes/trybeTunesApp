@@ -2,6 +2,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import bgEditProfile from '../../images/bg_editProfile.png';
 
 /*
   CSS Page Profile Edit
@@ -13,7 +14,7 @@ export const ContainerEditProfile = styled.section`
 `;
 
 export const HeaderEditProfile = styled.header`
-  background-image: url('../../images/bg_editProfile.png') ,
+  background-image: url(${bgEditProfile}) ,
   linear-gradient(135deg, rgb(0, 59, 229, 1), rgb(0, 213, 226, 1));
   background-position: center;
   background-repeat: no-repeat;
