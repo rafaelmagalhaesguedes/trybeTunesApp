@@ -12,21 +12,21 @@ export const Spinner = styled.section`
   gap: 10px;
   margin: 20px 40px;
   position: relative;
+`;
 
-  .text-spinner {
-    color: rgba(0, 59, 229, 1);
-    font-family: Epilogue, sans-serif;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 18px;
-    text-align: center;
-  }
+export const IconSpinner = styled.span`
+  animation: ${spin} 3s linear infinite;
+  background-color: transparent;
+  background-image: url(${iconSpinner});
+  height: 40px;
+  width: 40px;
+`;
 
-  .spinner {
-    animation: ${spin} 3s linear infinite;
-    background-color: transparent;
-    background-image: url(${iconSpinner});
-    height: 40px;
-    width: 40px;
-  }
+export const TextSpinner = styled.p`
+  color: rgba(0, 59, 229, 1);
+  font-family: Epilogue, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 18px;
+  text-align: center;
 `;
