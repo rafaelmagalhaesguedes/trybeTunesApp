@@ -4,10 +4,17 @@ import iconChecked from '../../images/checked_heart.png';
 import iconUnChecked from '../../images/empty_heart.png';
 import { SongType } from '../../types';
 import {
-  MusicAudio,
-  MusicFavorite,
-  MusicName,
   SectionMusicCard,
+  MusicName,
+  TrackName,
+  MusicAudio,
+  Audio,
+  MusicFavorite,
+  Track,
+  Code,
+  Label,
+  Input,
+  Icon,
 } from './Styles';
 
 type MusicCardProps = {
@@ -35,35 +42,33 @@ function MusicCard({ dataSong, favoriteSong, removeFavoriteSong } : MusicCardPro
   return (
     <SectionMusicCard>
       <MusicName>
-        <p>{trackName}</p>
+        <TrackName>{trackName}</TrackName>
       </MusicName>
       <MusicAudio>
-        <audio
-          className="audio-container"
+        <Audio
           data-testid="audio-component"
           src={ previewUrl }
           controls
         >
-          <track kind="captions" />
+          <Track kind="captions" />
           Seu navegador não suporta o elemento
-          <code>audio</code>
+          <Code>audio</Code>
           .
-        </audio>
+        </Audio>
       </MusicAudio>
       <MusicFavorite>
-        <label data-testid={ `checkbox-music-${trackId}` }>
-          <input
-            className="checkbox-favorite"
+        <Label data-testid={ `checkbox-music-${trackId}` }>
+          <Input
             type="checkbox"
             onChange={ handleCheck }
             checked={ isChecked }
           />
           {isChecked ? (
-            <img className="checkbox-icon" src={ iconChecked } alt="favorite" />
+            <Icon src={ iconChecked } alt="favorite" />
           ) : (
-            <img className="checkbox-icon" src={ iconUnChecked } alt="favorite" />
+            <Icon src={ iconUnChecked } alt="favorite" />
           )}
-        </label>
+        </Label>
       </MusicFavorite>
     </SectionMusicCard>
   );
