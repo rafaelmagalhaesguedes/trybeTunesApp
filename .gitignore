@@ -21,3 +21,13 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# local
+*.ts
+*.png
+.eslintrc.json
+.eslintignore.json
+.env
+.npmrc
+setupTests.ts
+trybe.yml
