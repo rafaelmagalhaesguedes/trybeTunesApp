@@ -63,10 +63,9 @@ function ProfileEdit() {
     try {
       setLoading(true);
       await updateUser(user);
+      window.location.reload();
     } catch (error) {
       console.error('Error fetching data!', error);
-    } finally {
-      setLoading(false);
     }
   };
 

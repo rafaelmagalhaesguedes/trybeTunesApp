@@ -22,7 +22,7 @@ function App() {
           <Route path="/album/:id" element={ <Album /> } />
           <Route path="/favorites" element={ <Favorites /> } />
           <Route path="/profile" element={ <Profile /> } />
-          <Route path="/profile/edit" element={ <ProfileEdit /> } />
+          <Route path="/profileedit" element={ <ProfileEdit /> } />
         </Route>
         <Route path="*" element={ <PageNotFound /> } />
       </Routes>

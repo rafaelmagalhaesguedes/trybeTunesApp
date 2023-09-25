@@ -40,7 +40,7 @@ function UserProfile({ user } : UserProfileProps) {
           <Label htmlFor="data">Descrição</Label>
           <Data>{user?.description}</Data>
         </UserDescription>
-        <Button to="/profile/edit">
+        <Button to="/profileedit">
           Editar perfil
         </Button>
       </UserDataProfile>
