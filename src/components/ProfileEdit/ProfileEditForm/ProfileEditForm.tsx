@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleExclamation } from '@fortawesome/free-solid-svg-icons';
-import { UserType } from '../../types';
+import { UserType } from '../../../types';
 import {
   FormEditProfile,
   Input,
@@ -21,7 +21,7 @@ import {
   IconValid,
   IconInvalid,
   LinkCancel,
-} from './Styles';
+} from './StylesForm';
 
 interface ProfileEditFormProps {
   user: UserType;

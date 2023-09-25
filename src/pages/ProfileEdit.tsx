@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getUser, updateUser } from '../services/userAPI';
-import ProfileEditForm from '../components/ProfileEdit/ProfileEditForm';
+import ProfileEditForm from '../components/ProfileEdit/ProfileEditForm/ProfileEditForm';
 import imagemPadrao from '../images/user-mock.png';
 import Loading from '../components/Loading/Loading';
 import Navbar from '../components/Navbar/Navbar';
