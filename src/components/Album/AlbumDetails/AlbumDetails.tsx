@@ -1,5 +1,5 @@
-import MusicCard from '../MusicCard/MusicCard';
-import { AlbumType, SongType } from '../../types';
+import MusicCard from '../../MusicCard/MusicCard';
+import { AlbumType, SongType } from '../../../types';
 import {
   AlbumArtistMobile,
   AlbumCover,
@@ -9,7 +9,7 @@ import {
   SectionDetails,
   WrapperAlbumMobile,
   Music,
-} from './Styles';
+} from './StylesDetails';
 
 interface AlbumDetailsProps {
   album: AlbumType | null;

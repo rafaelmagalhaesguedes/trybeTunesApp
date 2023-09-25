@@ -1,5 +1,10 @@
-import { AlbumType } from '../../types';
-import { AlbumArtist, AlbumHeaderContainer, AlbumName, WrapperAlbum } from './Styles';
+import { AlbumType } from '../../../types';
+import {
+  AlbumHeaderContainer,
+  WrapperAlbum,
+  AlbumName,
+  AlbumArtist,
+} from './StylesHeader';
 
 type AlbumHeaderProps = {
   album: AlbumType | null;

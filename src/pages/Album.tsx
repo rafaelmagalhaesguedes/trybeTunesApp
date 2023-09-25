@@ -3,12 +3,19 @@ import { useEffect, useState } from 'react';
 import getMusics from '../services/musicsAPI';
 import { AlbumType, SongType } from '../types';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
-import { AlbumContainer, LoadingAlbum } from '../components/Album/Styles';
 import ButtonBackToTop from '../components/ButtonBackToTop/BackToTop';
-import AlbumDetails from '../components/Album/AlbumDetails';
-import AlbumHeader from '../components/Album/AlbumHeader';
+import AlbumDetails from '../components/Album/AlbumDetails/AlbumDetails';
+import AlbumHeader from '../components/Album/AlbumHeader/AlbumHeader';
 import Loading from '../components/Loading/Loading';
 import Navbar from '../components/Navbar/Navbar';
+import {
+  AlbumContainer,
+  ErrorConnect,
+  LinkSearch,
+  LoadingAlbum,
+  TextMessage,
+  TitleMessage,
+} from '../components/Album/Styles';
 
 export default function Album() {
   const { id } = useParams<{ id: string }>();
@@ -44,7 +51,7 @@ export default function Album() {
     <AlbumContainer>
       <Navbar />
       <AlbumHeader album={ album } />
-      {!loading ? (
+      {album !== null ? (
         <AlbumDetails
           album={ album }
           songs={ songs }
@@ -52,7 +59,15 @@ export default function Album() {
         />
       ) : (
         <LoadingAlbum>
-          <Loading />
+          {!loading ? (
+            <ErrorConnect>
+              <TitleMessage>Problemas na conexão com a API...</TitleMessage>
+              <TextMessage>Tente pesquisar novamente!</TextMessage>
+              <LinkSearch to="/search">Buscar</LinkSearch>
+            </ErrorConnect>
+          ) : (
+            <Loading />
+          )}
         </LoadingAlbum>
       )}
       <ButtonBackToTop />
