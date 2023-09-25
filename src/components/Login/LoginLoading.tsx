@@ -4,9 +4,7 @@ export default function LoginLoading() {
   return (
     <Loading>
       <Spinner />
-      <SpinnerText>
-        <p>Carregando...</p>
-      </SpinnerText>
+      <SpinnerText>Carregando...</SpinnerText>
     </Loading>
   );
 }
