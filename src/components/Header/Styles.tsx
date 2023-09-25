@@ -1,6 +1,8 @@
-/*
-* Styles Component Header
-*/
+/** *****************************************
+*
+*    CSS Styles Component Header
+*
+********************************************* */
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
@@ -73,8 +75,4 @@ export const UserName = styled.p`
   font-weight: 400;
   letter-spacing: 0.03em;
   line-height: 16px;
-`;
-
-export const HeaderLoading = styled.div`  
-  margin: 20px 40px;
 `;

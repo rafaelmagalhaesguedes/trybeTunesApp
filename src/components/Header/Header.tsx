@@ -12,7 +12,6 @@ import {
   NavbarIcon,
   NavbarLink,
   NavbarUserInfo,
-  HeaderLoading,
   UserImage,
   UserName,
 } from './Styles';
@@ -64,9 +63,7 @@ export default function Header() {
           <UserName data-testid="header-user-name">{name}</UserName>
         </NavbarUserInfo>
       ) : (
-        <HeaderLoading>
-          <Loading />
-        </HeaderLoading>
+        <Loading />
       )}
     </ContainerHeader>
   );
