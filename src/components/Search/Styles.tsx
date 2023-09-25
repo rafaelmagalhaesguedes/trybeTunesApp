@@ -3,6 +3,7 @@
 */
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import bgSearchBlue from '../../images/bg_search_blue.png';
 
 type ErrorMessageContainerProps = {
   resultState: boolean | undefined;
@@ -20,14 +21,14 @@ export const SectionSearch = styled.section`
 
 export const SectionResult = styled.div`
   background: rgba(239, 243, 249, 1);
-  height: 500px;
+  height: 31.25rem;
   width: 100%;
 `;
 
 export const LoadingSearch = styled.div`
   align-items: center;
   display: flex;
-  height: 500px;
+  height: 31.25rem;
   justify-content: center;
 `;
 
@@ -40,7 +41,7 @@ export const Result = styled.div`
 */
 export const Form = styled.form`
   align-items: center;
-  background-image: url('../../images/bg_search_blue.png') ,
+  background-image: url(${bgSearchBlue}) ,
   linear-gradient(135deg, rgb(0, 59, 229, 1), rgb(0, 213, 226, 1));
   background-position: center;
   background-repeat: no-repeat;
@@ -53,7 +54,7 @@ export const Form = styled.form`
   @media only screen and ( max-width: 768px ) {
     align-items: center;
     display: flex;
-    height: 180px;
+    height: 11.25rem;
     padding: 10px;
     padding-top: 100px;
     width: 100%;
@@ -74,7 +75,12 @@ export const Input = styled.input`
   padding: 0 20px;
   text-align: left;
   text-transform: uppercase;
-  width: 400px;
+  width: 25rem;
+
+  &:focus {
+    border: 1px solid darkblue;
+    outline: 0;
+  }
 
   &::placeholder {
     color: white;
@@ -99,7 +105,7 @@ export const Button = styled.button`
   letter-spacing: 0.03em;
   line-height: 14px;
   text-transform: uppercase;
-  width: 114px;
+  width: 7.125rem;
 `;
 
 /*
@@ -107,27 +113,12 @@ export const Button = styled.button`
 */
 export const ResultSearch = styled.section`
   background: rgba(239, 243, 249, 1);
-  height: 500px;
+  height: 31.25rem;
   width: 100%;
 `;
 
 export const ResultCard = styled.div`
-  padding: 0;
-`;
-
-export const TitleAlbum = styled.div`
-  width: 100%;
-`;
-
-export const TitleAlbumResult = styled.h1`
-  color: rgba(0, 59, 229, 1);
-  font-family: Epilogue , sans-serif;
-  font-size: 20px;
-  font-style: italic;
-  font-weight: 300;
-  line-height: 21px;
-  padding: 50px;
-  text-align: center;
+  padding: 30px 0;
 `;
 
 export const AlbumDetails = styled.div`

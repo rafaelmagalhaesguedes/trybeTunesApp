@@ -16,7 +16,6 @@ import {
 
 function Search() {
   const [searchResult, setSearchResult] = useState<AlbumType[]>([]);
-  const [searchResultTitle] = useState('');
   const [resultState, setResultState] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -49,7 +48,6 @@ function Search() {
             {searchResult.length > 0 ? (
               <SearchResult
                 searchResult={ searchResult }
-                searchResultTitle={ searchResultTitle }
                 resultState={ resultState }
               />
             ) : (
