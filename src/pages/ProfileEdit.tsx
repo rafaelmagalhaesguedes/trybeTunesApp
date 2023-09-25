@@ -67,7 +67,6 @@ function ProfileEdit() {
       console.error('Error fetching data!', error);
     } finally {
       setLoading(false);
-      window.location.reload();
     }
   };
 
