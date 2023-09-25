@@ -128,11 +128,6 @@ export const UserInfos = styled.div`
     display: flex;
     flex-direction: row;
     gap: 2rem;
-  
-    .user-name {
-      color: white;
-      font-size: 1.3rem;
-    }
   }
 `;
 
@@ -143,5 +138,6 @@ export const UserImage = styled.img`
 
 export const Username = styled.p`
   color: white;
+  font-size: 1.2rem;
   width: 60%;
 `;
