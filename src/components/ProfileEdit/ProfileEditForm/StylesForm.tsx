@@ -8,6 +8,7 @@ export const FormEditProfile = styled.form`
 
   @media only screen and ( max-width : 768px ) {
     margin-top: -50px;
+    margin-bottom: 50px;
     padding-left: 1.875rem;
     width: 100%;
   }
