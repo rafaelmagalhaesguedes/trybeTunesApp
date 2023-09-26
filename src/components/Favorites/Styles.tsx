@@ -2,6 +2,7 @@
 * Styles Component Favorites
 */
 import styled from 'styled-components';
+import bgFavorites from '../../images/bg_favorites.png';
 
 export const ContainerFavorites = styled.section`
   align-items: center;
@@ -14,7 +15,7 @@ export const ContainerFavorites = styled.section`
 
 export const HeaderFavorites = styled.div`
   align-items: center;
-  background-image: url('../../images/bg_favorites.png') ,
+  background-image: url(${bgFavorites}) ,
   linear-gradient(135deg, rgb(0, 59, 229, 1), rgb(0, 213, 226, 1));
   background-position: center;
   background-repeat: no-repeat;
